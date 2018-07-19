@@ -1,0 +1,23 @@
+/**
+ * Ghostery Hub Sass
+ *
+ * Ghostery Browser Extension
+ * https://www.ghostery.com/
+ *
+ * Copyright 2018 Ghostery, Inc. All rights reserved.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0
+ */
+
+html, body, #root {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+@import './hub_partials/_svgs';
+@import './hub_partials/_side_navigation';
+@import './hub_partials/_stepped_navigation';
+@import './hub_partials/_other_partials'; // ToDo: Remove this file

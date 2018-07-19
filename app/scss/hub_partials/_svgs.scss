@@ -1,0 +1,44 @@
+/**
+ * Ghostery Hub - SVGs Sass
+ *
+ * Ghostery Browser Extension
+ * https://www.ghostery.com/
+ *
+ * Copyright 2018 Ghostery, Inc. All rights reserved.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0
+ */
+
+/*
+	// JavaScript function to convert an HTML escaped icon string into a readable XML string
+	function htmlToXml(str) {
+		return str
+			.replace(/%20/gi, ' ')
+			.replace(/%22/gi, '"')
+			.replace(/%3d/gi, '=')
+			.replace(/%3c/gi, '<')
+			.replace(/%3e/gi, '>');
+		}
+
+	// JavaScript function to convert a readable XML string into an HTML escaped icon string
+	function xmlToHtml(str) {
+		return str
+			.replace(/ /gi, '%20')
+			.replace(/"/gi, '%22')
+			.replace(/=/gi, '%3D')
+			.replace(/</gi, '%3C')
+			.replace(/>/gi, '%3E');
+	}
+*/
+
+// Function helper with color variables
+@function _url-friendly-colour($color) {
+	@return '%23' + str-slice('#{$color}', 2, -1);
+}
+
+// Used in _exit_navigation
+@function buildIconX($stroke-color) {
+	@return url('data:image/svg+xml;charset%3dUS-ASCII,%3csvg%20width%3d%2220%22%20height%3d%2220%22%20xmlns%3d%22http%3A//www.w3.org/2000/svg%22%3e%3cpath%20stroke%3d%22#{_url-friendly-colour($stroke-color)}%22%20stroke-width%3d%223%22%20stroke-linecap%3d%22round%22%20d%3d%22M2%202%20L18%2018%20M2%2018%20L18%202%22/%3e%3c/svg%3e');
+}
