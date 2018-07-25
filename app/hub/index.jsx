@@ -23,14 +23,14 @@ import configureStore from './store/configureStore';
 import App from './components/App';
 
 // Containers
-import HomeView from './components/Views/HomeView';
-import SetupView from './components/Views/SetupView';
-import TutorialView from './components/Views/TutorialView';
-import SupporterView from './components/Views/SupporterView';
-import RewardsView from './components/Views/RewardsView';
-import ProductsView from './components/Views/ProductsView';
-import CreateAccountView from './components/Views/CreateAccountView';
-import LogInView from './components/Views/LogInView';
+import HomeView from './Views/HomeView';
+import SetupView from './Views/SetupView';
+import TutorialView from './Views/TutorialView';
+import SupporterView from './Views/SupporterView';
+import RewardsView from './Views/RewardsView';
+import ProductsView from './Views/ProductsView';
+import CreateAccountView from './Views/CreateAccountView';
+import LogInView from './Views/LogInView';
 
 const store = configureStore();
 
@@ -39,7 +39,7 @@ const store = configureStore();
  * @memberof HubComponents
  */
 const Hub = () => (
-	<App store={store}>
+	<App>
 		<Route exact path="/" component={HomeView} />
 		<Route path="/setup" component={SetupView} />
 		<Route path="/tutorial" component={TutorialView} />

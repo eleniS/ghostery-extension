@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`app/hub/Views/SetupView container Snapshot tests with react-test-renderer setup view container is rendered correctly on the Anti-Suite step 1`] = `
+<div
+  className="full-height flex-container flex-dir-column"
+>
+  <div
+    className="flex-child-grow"
+  >
+    <div>
+      <div
+        className="row align-center"
+      >
+        <div
+          className="columns"
+        >
+          <div
+            className="row align-middle align-center"
+          >
+            <div
+              className="columns shrink"
+            >
+              <img
+                src="/app/images/hub/setup/ghosty-shield-stop-lightbulb.svg"
+              />
+            </div>
+            <div
+              className="columns shrink"
+            >
+              <h3
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Would you like to browse smarter with our recommended features?",
+                  }
+                }
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        Mock Setup Anti-Suite View
+      </div>
+    </div>
+  </div>
+  <div>
+    Mock Stepped Navigation
+  </div>
+</div>
+`;
+
+exports[`app/hub/Views/SetupView container Snapshot tests with react-test-renderer setup view container is rendered correctly on the Blocking step 1`] = `
+<div
+  className="full-height flex-container flex-dir-column"
+>
+  <div
+    className="flex-child-grow"
+  >
+    <div>
+      <div
+        className="row align-center"
+      >
+        <div
+          className="columns"
+        >
+          <div
+            className="row align-middle align-center"
+          >
+            <div
+              className="columns shrink"
+            >
+              <img
+                src="/app/images/hub/setup/ghosty-block-all.svg"
+              />
+            </div>
+            <div
+              className="columns shrink"
+            >
+              <h3
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Ghostery can block trackers to make your browsing cleaner, faster, and safer. What would you like to block?",
+                  }
+                }
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        Mock Setup Blocking View
+      </div>
+    </div>
+  </div>
+  <div>
+    Mock Stepped Navigation
+  </div>
+</div>
+`;
+
+exports[`app/hub/Views/SetupView container Snapshot tests with react-test-renderer setup view container is rendered correctly on the Done step 1`] = `
+<div
+  className="full-height flex-container flex-dir-column"
+>
+  <div
+    className="flex-child-grow"
+  >
+    <div>
+      <div
+        className="row align-center"
+      >
+        <div
+          className="columns"
+        >
+          <div
+            className="row align-middle align-center"
+          >
+            <div
+              className="columns shrink"
+            >
+              <img
+                src="/app/images/hub/setup/ghosty-check-wrench.svg"
+              />
+            </div>
+            <div
+              className="columns shrink"
+            >
+              <h3
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "You are ready!",
+                  }
+                }
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        Mock Setup Done View
+      </div>
+    </div>
+  </div>
+  <div>
+    Mock Stepped Navigation
+  </div>
+</div>
+`;
+
+exports[`app/hub/Views/SetupView container Snapshot tests with react-test-renderer setup view container is rendered correctly on the Human Web step 1`] = `
+<div
+  className="full-height flex-container flex-dir-column"
+>
+  <div
+    className="flex-child-grow"
+  >
+    <div>
+      <div
+        className="row align-center"
+      >
+        <div
+          className="columns"
+        >
+          <div
+            className="row align-middle align-center"
+          >
+            <div
+              className="columns shrink"
+            >
+              <img
+                src="/app/images/hub/setup/ghosty-human-web.svg"
+              />
+            </div>
+            <div
+              className="columns shrink"
+            >
+              <h3
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Would you like to help improve Ghostery?",
+                  }
+                }
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        Mock Setup Human Web View
+      </div>
+    </div>
+  </div>
+  <div>
+    Mock Stepped Navigation
+  </div>
+</div>
+`;

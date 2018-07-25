@@ -1,0 +1,34 @@
+/**
+ * Reducer used throughout the Setup View's flow
+ *
+ * Ghostery Browser Extension
+ * https://www.ghostery.com/
+ *
+ * Copyright 2018 Ghostery, Inc. All rights reserved.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0
+ */
+
+const initialState = {};
+
+function SetupViewReducer(state = initialState, action) {
+	switch (action.type) {
+		case 'INIT_SETUP_PROPS': {
+			const { blockingPolicy } = action.data;
+			return Object.assign({}, state, {
+				setup: { blockingPolicy },
+			});
+		}
+		case 'CHANGE_BLOCKING_POLICY': {
+			const { blockingPolicy } = action.data;
+			return Object.assign({}, state, {
+				setup: { blockingPolicy },
+			});
+		}
+		default: return state;
+	}
+}
+
+export default SetupViewReducer;

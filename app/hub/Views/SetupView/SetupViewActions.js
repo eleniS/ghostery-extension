@@ -1,5 +1,5 @@
 /**
- * Ghostery Hub Sass
+ * Setup View Action creators
  *
  * Ghostery Browser Extension
  * https://www.ghostery.com/
@@ -11,15 +11,9 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
-html, body, #root {
-	height: 100%;
-	width: 100%;
-	margin: 0;
+export function initSetupProps(data) {
+	return {
+		type: 'INIT_SETUP_PROPS',
+		data,
+	};
 }
-
-@import './partials/_hub_svgs';
-@import './partials/_hub_side_navigation';
-@import './partials/_hub_other_partials'; // ToDo: Remove this file
-
-// Imports from ../hub directory
-@import '../hub/SteppedNavigation/SteppedNavigation.scss';

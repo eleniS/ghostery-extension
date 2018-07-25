@@ -1,5 +1,5 @@
 /**
- * Combine Reducers
+ * Main Reducer index.js file for the Hub to Combine Reducers
  *
  * Ghostery Browser Extension
  * https://www.ghostery.com/
@@ -9,27 +9,15 @@
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0
- *
- * ToDo: Update this file.
  */
 
 import { combineReducers } from 'redux';
+import { reducer as setup } from '../Views/SetupView';
 
 const initialState = {};
-function testReducer1(state = initialState, action) {
-	switch (action.type) {
-		default: return state;
-	}
-}
-function testReducer2(state = initialState, action) {
-	switch (action.type) {
-		default: return state;
-	}
-}
 
 const Reducers = combineReducers({
-	testReducer1,
-	testReducer2,
+	setup,
 });
 
 export default Reducers;
