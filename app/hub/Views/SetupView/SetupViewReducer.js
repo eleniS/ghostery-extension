@@ -15,18 +15,70 @@ const initialState = {};
 
 function SetupViewReducer(state = initialState, action) {
 	switch (action.type) {
+		// Setup View
 		case 'INIT_SETUP_PROPS': {
-			const { blockingPolicy } = action.data;
+			const {
+				blockingPolicy,
+				enable_anti_tracking,
+				enable_ad_block,
+				enable_smart_blocking,
+				enable_ghostery_rewards,
+				enable_human_web,
+			} = action.data;
 			return Object.assign({}, state, {
-				setup: { blockingPolicy },
+				setup: {
+					blockingPolicy,
+					enable_anti_tracking,
+					enable_ad_block,
+					enable_smart_blocking,
+					enable_ghostery_rewards,
+					enable_human_web,
+				},
 			});
 		}
-		case 'CHANGE_BLOCKING_POLICY': {
+
+		// Setup Blocking View
+		case 'SET_BLOCKING_POLICY': {
 			const { blockingPolicy } = action.data;
 			return Object.assign({}, state, {
-				setup: { blockingPolicy },
+				setup: Object.assign({}, state.setup, { blockingPolicy }),
 			});
 		}
+
+		// Setup Anti-Suite View
+		case 'SET_ANTI_TRACKING': {
+			const { enable_anti_tracking } = action.data;
+			return Object.assign({}, state, {
+				setup: Object.assign({}, state.setup, { enable_anti_tracking }),
+			});
+		}
+		case 'SET_AD_BLOCK': {
+			const { enable_ad_block } = action.data;
+			return Object.assign({}, state, {
+				setup: Object.assign({}, state.setup, { enable_ad_block }),
+			});
+		}
+		case 'SET_SMART_BLOCKING': {
+			const { enable_smart_blocking } = action.data;
+			return Object.assign({}, state, {
+				setup: Object.assign({}, state.setup, { enable_smart_blocking }),
+			});
+		}
+		case 'SET_GHOSTERY_REWARDS': {
+			const { enable_ghostery_rewards } = action.data;
+			return Object.assign({}, state, {
+				setup: Object.assign({}, state.setup, { enable_ghostery_rewards }),
+			});
+		}
+
+		// Setup Human Web View
+		case 'SET_HUMAN_WEB': {
+			const { enable_human_web } = action.data;
+			return Object.assign({}, state, {
+				setup: Object.assign({}, state.setup, { enable_human_web }),
+			});
+		}
+
 		default: return state;
 	}
 }

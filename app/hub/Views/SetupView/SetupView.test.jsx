@@ -9,6 +9,8 @@
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0
+ *
+ * ToDo: Update this file with Integration tests using Enzyme
  */
 
 import React from 'react';
@@ -23,7 +25,7 @@ const TestComponent = props => (
 	<div>test component</div>
 );
 
-describe('app/hub/Views/SetupView', () => {
+describe('app/hub/Views/SetupView component', () => {
 	describe('Snapshot tests with react-test-renderer', () => {
 		test('setup view is rendered correctly on first route', () => {
 			const initialState = {
@@ -149,53 +151,8 @@ describe('app/hub/Views/SetupView', () => {
 	});
 
 	describe('Mount snapshot tests rendered with Enzyme', () => {
-		test.skip('the happy path of the component', () => {
-			const initialState = {
-				activeIndex: 1,
-				steps: [
-					{
-						index: 1,
-						path: '/test/1',
-						bodyComponent: TestComponent,
-						headerProps: {
-							title: 'title test 1',
-							titleImage: 'title-image-1',
-						}
-					},
-					{
-						index: 2,
-						path: '/test/2',
-						bodyComponent: TestComponent,
-						headerProps: {
-							title: 'title test 2',
-							titleImage: 'title-image-2',
-						}
-					},
-				],
-			};
-			const paths = initialState.steps.map(el => el.path);
-			const component = mount(
-				<MemoryRouter initialEntries={paths} initialIndex={0} >
-					<SetupView {...initialState} />
-				</MemoryRouter>
-			);
-			expect(component.find(SetupView).length).toBe(1);
-			expect(component.find(SetupHeader).length).toBe(1);
-			expect(component.find(TestComponent).length).toBe(1);
-			expect(component.find(SteppedNavigation).length).toBe(1);
-			expect(component.find({ src: 'title-image-1'}).length).toBe(1);
-			expect(component.find({ src: 'title-image-2'}).length).toBe(0);
+		test.skip('the happy path of the component', () => {});
 
-			component.setProps({ initialIndex: 1 });
-			expect(component.find(SetupView).length).toBe(1);
-			expect(component.find(SetupHeader).length).toBe(1);
-			expect(component.find(TestComponent).length).toBe(1);
-			expect(component.find(SteppedNavigation).length).toBe(1);
-			// expect(component.find({ src: 'title-image-1'}).length).toBe(0); // Broken because router doesn't automatically update activeIndex
-			// expect(component.find({ src: 'title-image-2'}).length).toBe(1); // Broken because router doesn't automatically update activeIndex
-		});
-
-		test.skip('the non-happy path of the component', () => {
-		});
+		test.skip('the non-happy path of the component', () => {});
 	});
 });

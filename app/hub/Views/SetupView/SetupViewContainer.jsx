@@ -30,11 +30,25 @@ class SetupViewContainer extends React.Component {
 	 * Lifecycle Event
 	 */
 	componentWillMount() {
-		const { blockingPolicy } = this.props;
+		const {
+			blockingPolicy,
+			enable_anti_tracking,
+			enable_ad_block,
+			enable_smart_blocking,
+			enable_ghostery_rewards,
+			enable_human_web,
+		} = this.props;
 		const title = 'Ghostery Hub - Setup';
 
 		window.document.title = title;
-		this.props.actions.initSetupProps({ blockingPolicy });
+		this.props.actions.initSetupProps({
+			blockingPolicy,
+			enable_anti_tracking,
+			enable_ad_block,
+			enable_smart_blocking,
+			enable_ghostery_rewards,
+			enable_human_web,
+		});
 	}
 
 	/**
@@ -89,6 +103,12 @@ class SetupViewContainer extends React.Component {
 // Default props used throughout the Setup flow
 SetupViewContainer.defaultProps = {
 	blockingPolicy: 'recommended',
+	enable_anti_tracking: true,
+	enable_ad_block: true,
+	enable_smart_blocking: true,
+	enable_ghostery_rewards: true,
+	enable_human_web: true,
+
 	actions: { // ToDo: remove this
 		initSetupProps: () => {},
 	},

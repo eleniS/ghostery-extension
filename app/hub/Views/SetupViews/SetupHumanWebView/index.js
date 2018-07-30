@@ -11,6 +11,30 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
-import SetupHumanWebView from './SetupHumanWebView';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-export default SetupHumanWebView;
+import SetupHumanWebViewContainer from './SetupHumanWebViewContainer';
+import * as SetupHumanWebViewActions from './SetupHumanWebViewActions';
+
+/**
+ * Map redux store state properties to the component's own properties.
+ * @param  {Object} state    entire Redux store's state
+ * @param  {Object} ownProps props passed to the connected component
+ * @return {function}        this function returns a plain object, which will be merged into the component's props
+ * @memberof HubContainers
+ */
+const mapStateToProps = (state, ownProps) => Object.assign({}, state.setup);
+
+/**
+ * Bind the component's action creators using Redux's bindActionCreators.
+ * @param  {function} dispatch redux store method which dispatches actions
+ * @param  {Object} ownProps   the component's own props
+ * @return {function}          to be used as an argument in redux connect call
+ * @memberof SetupContainers
+ */
+const mapDispatchToProps = (dispatch, ownProps) => ({
+	actions: bindActionCreators(Object.assign(SetupHumanWebViewActions), dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SetupHumanWebViewContainer);

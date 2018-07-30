@@ -1,5 +1,5 @@
 /**
- * Setup Blocking View Action creators
+ * Setup Blocking View Sass
  *
  * Ghostery Browser Extension
  * https://www.ghostery.com/
@@ -11,9 +11,13 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
-export function setBlockingPolicy(data) {
-	return {
-		type: 'SET_BLOCKING_POLICY',
-		data,
-	};
+// Setup Header
+.SetupHeader {
+	margin: 50px 35px 15px;
+}
+.SetupHeader img {
+	max-width: 180px;
+}
+.SetupHeader__title {
+	margin: 0 23px;
 }

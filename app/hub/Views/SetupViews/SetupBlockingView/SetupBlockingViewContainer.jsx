@@ -41,7 +41,7 @@ class SetupBlockingViewContainer extends Component {
 	*/
 	_handleChange(event) {
 		const blockingPolicy = event.target.value;
-		this.props.actions.changeBlockingPolicy({ blockingPolicy });
+		this.props.actions.setBlockingPolicy({ blockingPolicy });
 	}
 
 	/**
@@ -55,21 +55,26 @@ class SetupBlockingViewContainer extends Component {
 				name: 'nothing',
 				image: '/app/images/hub/setup/block-none.svg',
 				text: 'Block Nothing',
+				belowText: 'No trackers blocked.',
 			},
 			{
 				name: 'recommended',
 				image: '/app/images/hub/setup/block-ads.svg',
 				text: 'Ghostery Default Blocking',
+				aboveText: 'Recommended',
+				belowText: 'Advertising, Site Analytics, and Adult Advertising trackers blocked.',
 			},
 			{
 				name: 'everything',
 				image: '/app/images/hub/setup/block-all.svg',
 				text: 'Block Everyting',
+				belowText: 'All trackers blocked',
 			},
 			{
 				name: 'custom',
 				image: '/app/images/hub/setup/block-custom.svg',
 				text: 'Choose from List',
+				belowText: 'Choose which trackers you\'d like to block',
 			},
 		];
 

@@ -45,6 +45,7 @@ const cleanTmpStyleFiles = new WebpackShellPlugin({
 	onBuildEnd: [
 		`${RM} ./dist/foundation.js`,
 		`${RM} ./dist/ghostery_dot_com_css.js`,
+		`${RM} ./dist/foundation_hub.js`,
 		`${RM} ./dist/licenses.js`,
 		`${RM} ./dist/panel.js`,
 		`${RM} ./dist/panel_android.js`,
@@ -132,6 +133,7 @@ const config = {
 		licenses_react: [LICENSES_DIR + '/Licenses.jsx', LICENSES_DIR + '/License.jsx'],
 		// Sass
 		foundation: [SASS_DIR + '/vendor/foundation.scss'],
+		foundation_hub: [SASS_DIR + '/vendor/foundation_hub.scss'],
 		ghostery_dot_com_css: [SASS_DIR + '/ghostery_dot_com.scss'],
 		licenses: [SASS_DIR + '/licenses.scss'],
 		panel: [SASS_DIR + '/panel.scss'],

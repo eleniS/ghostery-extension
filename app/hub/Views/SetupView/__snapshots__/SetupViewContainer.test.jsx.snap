@@ -12,20 +12,16 @@ exports[`app/hub/Views/SetupView container Snapshot tests with react-test-render
         className="row align-center"
       >
         <div
-          className="columns"
+          className="columns small-12 large-10"
         >
           <div
-            className="row align-middle align-center"
+            className="SetupHeader flex-container align-center-middle"
           >
+            <img
+              src="/app/images/hub/setup/ghosty-shield-stop-lightbulb.svg"
+            />
             <div
-              className="columns shrink"
-            >
-              <img
-                src="/app/images/hub/setup/ghosty-shield-stop-lightbulb.svg"
-              />
-            </div>
-            <div
-              className="columns shrink"
+              className="SetupHeader__title"
             >
               <h3
                 dangerouslySetInnerHTML={
@@ -61,20 +57,16 @@ exports[`app/hub/Views/SetupView container Snapshot tests with react-test-render
         className="row align-center"
       >
         <div
-          className="columns"
+          className="columns small-12 large-10"
         >
           <div
-            className="row align-middle align-center"
+            className="SetupHeader flex-container align-center-middle"
           >
+            <img
+              src="/app/images/hub/setup/ghosty-block-all.svg"
+            />
             <div
-              className="columns shrink"
-            >
-              <img
-                src="/app/images/hub/setup/ghosty-block-all.svg"
-              />
-            </div>
-            <div
-              className="columns shrink"
+              className="SetupHeader__title"
             >
               <h3
                 dangerouslySetInnerHTML={
@@ -110,20 +102,16 @@ exports[`app/hub/Views/SetupView container Snapshot tests with react-test-render
         className="row align-center"
       >
         <div
-          className="columns"
+          className="columns small-12 large-10"
         >
           <div
-            className="row align-middle align-center"
+            className="SetupHeader flex-container align-center-middle"
           >
+            <img
+              src="/app/images/hub/setup/ghosty-check-wrench.svg"
+            />
             <div
-              className="columns shrink"
-            >
-              <img
-                src="/app/images/hub/setup/ghosty-check-wrench.svg"
-              />
-            </div>
-            <div
-              className="columns shrink"
+              className="SetupHeader__title"
             >
               <h3
                 dangerouslySetInnerHTML={
@@ -159,20 +147,16 @@ exports[`app/hub/Views/SetupView container Snapshot tests with react-test-render
         className="row align-center"
       >
         <div
-          className="columns"
+          className="columns small-12 large-10"
         >
           <div
-            className="row align-middle align-center"
+            className="SetupHeader flex-container align-center-middle"
           >
+            <img
+              src="/app/images/hub/setup/ghosty-human-web.svg"
+            />
             <div
-              className="columns shrink"
-            >
-              <img
-                src="/app/images/hub/setup/ghosty-human-web.svg"
-              />
-            </div>
-            <div
-              className="columns shrink"
+              className="SetupHeader__title"
             >
               <h3
                 dangerouslySetInnerHTML={

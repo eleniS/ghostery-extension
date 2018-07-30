@@ -9,42 +9,28 @@
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0
- *
- * ToDo: Update this file.
  */
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import ClassNames from 'classnames';
 
 /**
- * @class Implement the Setup Human Web View for the Ghostery Hub
- * @extends Component
+ * A Functional React component for rendering the Setup Human Web View
+ * @return {JSX} JSX for rendering the Setup Human Web View of the Hub app
  * @memberof HubComponents
  */
-class SetupHumanWebView extends Component {
-	constructor(props) {
-		super(props);
+const SetupHumanWebView = props => (
+	<div className="setup-human-web-view">
+		<h4>Human Web View</h4>
+		<div onClick={props.changeHumanWeb}>{props.enableHumanWeb.toString()}</div>
+	</div>
+);
 
-		this.state = {
-			title: 'Ghostery Hub - Setup Human Web'
-		};
-	}
-
-	/**
-	 * Lifecycle Event
-	 */
-	componentWillMount() {
-		const { title } = this.state;
-		window.document.title = title;
-	}
-
-	/**
-	 * React's required render function. Returns JSX
-	 * @return {JSX} JSX for rendering the Setup Human Web View of the Hub app
-	 */
-	render() {
-		const { title } = this.state;
-		return <div>{title}</div>;
-	}
-}
+// PropTypes ensure we pass required props of the correct type
+SetupHumanWebView.propTypes = {
+	enableHumanWeb: PropTypes.bool.isRequired,
+	changeHumanWeb: PropTypes.func.isRequired,
+};
 
 export default SetupHumanWebView;

@@ -17,6 +17,9 @@
 .full-height {
 	height: 100%;
 }
+.display-inline {
+	display: inline-block;
+}
 
 // App Scss
 .App {
@@ -33,25 +36,4 @@
 .App__mainContent {
 	height: 100%;
 	flex-grow: 1;
-}
-
-.SetupBlocking__choice {
-	border: 2px solid rgba(#ffffff, 0);
-}
-.SetupBlocking--selected {
-	border-color: purple;
-}
-.SetupBlocking__imageContainer label {
-	height: 125px;
-	padding: 0 15px;
-	background-color: #f7f7f7;
-}
-.SetupBlocking__imageContainer input {
-	display: none;
-}
-.SetupBlocking__text {
-	min-height: 70px;
-	padding: 15px;
-	background-color: #e8e8e8;
-	color: #a4a4a4;
 }

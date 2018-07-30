@@ -12,6 +12,7 @@
  */
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * A Functional React component for rendering the Setup View
@@ -20,17 +21,21 @@ import React, { Component } from 'react';
  */
 const SetupHeader = props => (
 	<div className="row align-center">
-		<div className="columns">
-			<div className="row align-middle align-center">
-				<div className="columns shrink">
-					<img src={props.titleImage} />
-				</div>
-				<div className="columns shrink">
+		<div className="columns small-12 large-10">
+			<div className="SetupHeader flex-container align-center-middle">
+				<img src={props.titleImage} />
+				<div className="SetupHeader__title">
 					<h3 dangerouslySetInnerHTML={{ __html: props.title }} />
 				</div>
 			</div>
 		</div>
 	</div>
 );
+
+// PropTypes ensure we pass required props of the correct type
+SetupHeader.propTypes = {
+	title: PropTypes.string.isRequired,
+	titleImage: PropTypes.string.isRequired,
+};
 
 export default SetupHeader;

@@ -10,12 +10,11 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  *
- * ToDo: Update this file
+ * ToDo: Update this file with Integration Tests using Enzyme
  */
 
 import React from 'react';
 import renderer from 'react-test-renderer';
-// import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router';
 
 // Mock Necessary Imports
@@ -27,15 +26,6 @@ jest.mock('../../SteppedNavigation', () => props => <div>Mock Stepped Navigation
 
 // Import Components
 import SetupViewContainer from './SetupViewContainer';
-// import SetupView from './SetupView';
-// import SetupHeader from '../SetupViews/SetupHeader';
-
-// Import Mocked Setup Views
-// import SetupBlockingView from '../SetupViews/SetupBlockingView';
-// import SetupAntiSuiteView from '../SetupViews/SetupAntiSuiteView';
-// import SetupHumanWebView from '../SetupViews/SetupHumanWebView';
-// import SetupDoneView from '../SetupViews/SetupDoneView';
-// import SteppedNavigation from '../../SteppedNavigation';
 
 describe('app/hub/Views/SetupView container', () => {
 	describe('Snapshot tests with react-test-renderer', () => {
@@ -81,32 +71,8 @@ describe('app/hub/Views/SetupView container', () => {
 	});
 
 	describe('Mount snapshot tests rendered with Enzyme', () => {
-		test.skip('the happy path of the component', () => {
-			const paths = ['/setup/1', '/setup/2', '/setup/3', '/setup/4'];
-			const component = mount(
-				<MemoryRouter initialEntries={paths} initialIndex={0} >
-					<SetupViewContainer />
-				</MemoryRouter>
-			);
-			expect(component.find(SetupViewContainer).length).toBe(1);
-			expect(component.find(SetupView).length).toBe(1);
-			expect(component.find(SetupHeader).length).toBe(1);
-			expect(component.find(SteppedNavigation).length).toBe(1);
-			expect(component.find(SetupBlockingView).length).toBe(1);
-			expect(component.find(SetupAntiSuiteView).length).toBe(0);
-			expect(component.find(SetupHumanWebView).length).toBe(0);
-			expect(component.find(SetupDoneView).length).toBe(0);
-			//
-			// component.setProps({ initialIndex: 1 });
-			// expect(component.find(SetupView).length).toBe(1);
-			// expect(component.find(SetupHeader).length).toBe(1);
-			// expect(component.find(TestComponent).length).toBe(1);
-			// expect(component.find(SteppedNavigation).length).toBe(1);
-			// expect(component.find({ src: 'title-image-1'}).length).toBe(0); // Broken because router doesn't automatically update activeIndex
-			// expect(component.find({ src: 'title-image-2'}).length).toBe(1); // Broken because router doesn't automatically update activeIndex
-		});
+		test.skip('the happy path of the component', () => {});
 
-		test.skip('the non-happy path of the component', () => {
-		});
+		test.skip('the non-happy path of the component', () => {});
 	});
 });

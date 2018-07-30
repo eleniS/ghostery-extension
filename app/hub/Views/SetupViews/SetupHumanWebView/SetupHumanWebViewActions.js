@@ -1,5 +1,5 @@
 /**
- * Setup Blocking View Action creators
+ * Setup Human Web View Action creators
  *
  * Ghostery Browser Extension
  * https://www.ghostery.com/
@@ -11,9 +11,9 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
-export function setBlockingPolicy(data) {
+export function setHumanWeb(data) {
 	return {
-		type: 'SET_BLOCKING_POLICY',
+		type: 'SET_HUMAN_WEB',
 		data,
 	};
 }

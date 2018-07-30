@@ -38,7 +38,7 @@
 	@return '%23' + str-slice('#{$color}', 2, -1);
 }
 
-// Used in _exit_navigation
+// Used in Stepped Navigation
 @function buildIconX($stroke-color) {
 	@return url('data:image/svg+xml;charset%3dUS-ASCII,%3csvg%20width%3d%2220%22%20height%3d%2220%22%20xmlns%3d%22http%3A//www.w3.org/2000/svg%22%3e%3cpath%20stroke%3d%22#{_url-friendly-colour($stroke-color)}%22%20stroke-width%3d%223%22%20stroke-linecap%3d%22round%22%20d%3d%22M2%202%20L18%2018%20M2%2018%20L18%202%22/%3e%3c/svg%3e');
 }

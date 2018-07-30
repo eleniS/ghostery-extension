@@ -21,42 +21,45 @@ import ClassNames from 'classnames';
  * @memberof HubComponents
  */
 const SetupBlockingView = props => (
-	<div className="row small-up-1 medium-up-2 large-up-4">
-		{props.choices.map((choice) => {
-			const choiceClassNames = ClassNames({
-				SetupBlocking__choice: true,
-				'SetupBlocking--selected': choice.name === props.blockingPolicy,
-			});
-			const imageContainerClassNames = ClassNames({
-				SetupBlocking__imageContainer: true,
-			});
+	<div className="row align-center">
+		<div className="columns small-12 large-10">
+			<div className="SetupBlocking">
+				<div className="row small-up-4">
+					{props.choices.map((choice) => {
+						const choiceBoxClassNames = ClassNames('flex-container', 'flex-dir-column', {
+							SetupBlocking__choiceBox: true,
+							'SetupBlocking--selected': choice.name === props.blockingPolicy,
+						});
 
-			return (
-				<div key={`block-value${choice.name}`} className="columns">
-					<div className={choiceClassNames}>
-						<div className={imageContainerClassNames}>
-							<label
-								htmlFor={`input-block-${choice.name}`}
-								className="flex-container align-center-middle"
-							>
-								<img src={choice.image} />
-							</label>
-							<input
-								type="radio"
-								name={choice.name}
-								value={choice.name}
-								id={`input-block-${choice.name}`}
-								checked={props.blockingPolicy === choice.name}
-								onChange={props.handleSelection}
-							/>
-						</div>
-						<div className="SetupBlocking__text flex-container align-center-middle">
-							<span>{choice.text}</span>
-						</div>
-					</div>
+						return (
+							<div key={`block-value-${choice.name}`} className="columns">
+								<div>
+									<div className="SetupBlocking__aboveText">{choice.aboveText}</div>
+									<label htmlFor={`input-block-${choice.name}`} className={choiceBoxClassNames}>
+										<div className="SetupBlocking__imageContainer flex-container align-center-middle">
+											<img src={choice.image} />
+										</div>
+										<div className="SetupBlocking__textContainer flex-child-grow flex-container align-center-middle">
+											{choice.text}
+										</div>
+									</label>
+									<div className="SetupBlocking__belowText">{choice.belowText}</div>
+								</div>
+
+								<input
+									type="radio"
+									name={choice.name}
+									value={choice.name}
+									id={`input-block-${choice.name}`}
+									checked={props.blockingPolicy === choice.name}
+									onChange={props.handleSelection}
+								/>
+							</div>
+						);
+					})}
 				</div>
-			);
-		})}
+			</div>
+		</div>
 	</div>
 );
 
@@ -68,6 +71,8 @@ SetupBlockingView.propTypes = {
 		name: PropTypes.string.isRequired,
 		image: PropTypes.string.isRequired,
 		text: PropTypes.string.isRequired,
+		aboveText: PropTypes.string,
+		belowText: PropTypes.string.isRequired,
 	})).isRequired,
 };
 

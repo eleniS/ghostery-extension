@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`app/hub/Views/SetupViews/SetupHumanWebView component Snapshot tests with react-test-renderer setup human web view is rendered correctly 1`] = `
+<div
+  className="setup-human-web-view"
+>
+  <h4>
+    Human Web View
+  </h4>
+  <div
+    onClick={[Function]}
+  >
+    true
+  </div>
+</div>
+`;

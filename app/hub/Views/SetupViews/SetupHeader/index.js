@@ -1,5 +1,5 @@
 /**
- * Setup Blocking View Action creators
+ * Point of entry index.js file for Setup Header
  *
  * Ghostery Browser Extension
  * https://www.ghostery.com/
@@ -11,9 +11,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
-export function setBlockingPolicy(data) {
-	return {
-		type: 'SET_BLOCKING_POLICY',
-		data,
-	};
-}
+import SetupHeader from './SetupHeader';
+
+export default SetupHeader;
