@@ -1,0 +1,134 @@
+/**
+ * Setup Navigation Container for Stepped Navigation Component
+ *
+ * Ghostery Browser Extension
+ * https://www.ghostery.com/
+ *
+ * Copyright 2018 Ghostery, Inc. All rights reserved.
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0
+ */
+
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { SteppedNavigation } from '../../../../shared-components';
+
+/**
+ * @class Implement the Setup version of Stepped Navigation for the Ghostery Hub
+ * @extends Component
+ * @memberof HubComponents
+ */
+class SetupNavigationContainer extends Component {
+	constructor(props) {
+		super(props);
+
+		// Event Bindings
+		this._clickExit = this._clickExit.bind(this);
+	}
+
+	/**
+	* Function to handle clicking the exit setup link
+	*/
+	_clickExit() {
+		const { actions, setup } = this.props;
+		const {
+			selected_app_ids,
+			enable_anti_tracking,
+			enable_ad_block,
+			enable_smart_blocking,
+			enable_ghostery_rewards,
+			enable_human_web,
+		} = setup.settings_backup;
+
+		actions.setBlockingPolicy({ blockingPolicy: 'BLOCKING_POLICY_CUSTOM', selected_app_ids });
+		actions.setAntiTracking({ enable_anti_tracking });
+		actions.setAdBlock({ enable_ad_block });
+		actions.setSmartBlocking({ enable_smart_blocking });
+		actions.setGhosteryRewards({ enable_ghostery_rewards });
+		actions.setHumanWeb({ enable_human_web });
+	}
+
+	/**
+	 * React's required render function. Returns JSX
+	 * @return {JSX} JSX for rendering the Setup version of the Stepped Navigation component
+	 */
+	render() {
+		const { totalSteps, setup } = this.props;
+		const { navigation } = setup;
+		const {
+			activeIndex,
+			hrefPrev,
+			hrefNext,
+			hrefDone,
+			textPrev,
+			textNext,
+			textDone,
+		} = navigation;
+		const childProps = {
+			totalSteps,
+			activeIndex,
+			hrefPrev,
+			hrefNext,
+			hrefDone,
+			textPrev,
+			textNext,
+			textDone,
+		};
+
+		return <SteppedNavigation {...childProps} clickExit={this._clickExit} />;
+	}
+}
+
+// PropTypes ensure we pass required props of the correct type
+SetupNavigationContainer.propTypes = {
+	totalSteps: PropTypes.number.isRequired,
+	setup: PropTypes.shape({
+		navigation: PropTypes.shape({
+			activeIndex: PropTypes.number.isRequired,
+			hrefPrev: PropTypes.oneOfType([
+				PropTypes.bool,
+				PropTypes.string,
+			]).isRequired,
+			hrefNext: PropTypes.oneOfType([
+				PropTypes.bool,
+				PropTypes.string,
+			]).isRequired,
+			hrefDone: PropTypes.oneOfType([
+				PropTypes.bool,
+				PropTypes.string,
+			]).isRequired,
+			textPrev: PropTypes.oneOfType([
+				PropTypes.bool,
+				PropTypes.string,
+			]).isRequired,
+			textNext: PropTypes.oneOfType([
+				PropTypes.bool,
+				PropTypes.string,
+			]).isRequired,
+			textDone: PropTypes.oneOfType([
+				PropTypes.bool,
+				PropTypes.string,
+			]).isRequired,
+		}).isRequired,
+		settings_backup: PropTypes.shape({
+			selected_app_ids: PropTypes.objectOf(PropTypes.number).isRequired,
+			enable_anti_tracking: PropTypes.bool.isRequired,
+			enable_ad_block: PropTypes.bool.isRequired,
+			enable_smart_blocking: PropTypes.bool.isRequired,
+			enable_ghostery_rewards: PropTypes.bool.isRequired,
+			enable_human_web: PropTypes.bool.isRequired,
+		}).isRequired,
+	}).isRequired,
+	actions: PropTypes.shape({
+		setBlockingPolicy: PropTypes.func.isRequired,
+		setAntiTracking: PropTypes.func.isRequired,
+		setAdBlock: PropTypes.func.isRequired,
+		setSmartBlocking: PropTypes.func.isRequired,
+		setGhosteryRewards: PropTypes.func.isRequired,
+		setHumanWeb: PropTypes.func.isRequired,
+	}).isRequired,
+};
+
+export default SetupNavigationContainer;

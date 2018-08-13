@@ -14,21 +14,58 @@
 import Immutable from 'seamless-immutable';
 import SetupViewReducer from './SetupViewReducer';
 
-// Copied from Setup View Default Props
+// Copied from Setup View Container Default Props
 const initialState = Immutable({
 	setup: {
+		navigation: {
+			activeIndex: 0,
+			hrefPrev: false,
+			hrefNext: false,
+			hrefDone: false,
+			textPrev: false,
+			textNext: false,
+			textDone: false,
+		},
+		settings_backup: {
+			selected_app_ids: {},
+			enable_anti_tracking: true,
+			enable_ad_block: true,
+			enable_smart_blocking: true,
+			enable_ghostery_rewards: true,
+			enable_human_web: true,
+		},
 		blockingPolicy: 'recommended',
 		enable_anti_tracking: true,
 		enable_ad_block: true,
 		enable_smart_blocking: true,
 		enable_ghostery_rewards: true,
 		enable_human_web: true,
-	}
+	},
 });
 
 describe('app/hub/Views/SetupView reducer', () => {
 	test('initial state is correct', () => {
 		expect(SetupViewReducer(undefined, {})).toEqual({});
+	});
+
+	test('reducer correctly handles GET_SETTINGS_BACKUP', () => {
+		const data = {
+			selected_app_ids: { test: 'example' },
+			enable_anti_tracking: false,
+			enable_ad_block: false,
+			enable_smart_blocking: false,
+			enable_ghostery_rewards: false,
+			enable_human_web: false,
+		};
+		const action = { data, type: 'GET_SETTINGS_BACKUP' };
+
+		const updatedSetupState = Immutable.merge(initialState.setup, {
+			settings_backup: data,
+		});
+
+		expect(SetupViewReducer(initialState, action)).toEqual({
+			setup: updatedSetupState,
+		});
 	});
 
 	test('reducer correctly handles INIT_SETUP_PROPS', () => {
@@ -37,6 +74,27 @@ describe('app/hub/Views/SetupView reducer', () => {
 		const initState = Immutable({});
 
 		expect(SetupViewReducer(initState, action)).toEqual(initialState);
+	});
+
+	test('reducer correctly handles SET_SETUP_NAVIGATION', () => {
+		const data = {
+			activeIndex: 2,
+			hrefPrev: '/test/1',
+			hrefNext: '/test/3',
+			hrefDone: '/',
+			textPrev: 'Back',
+			textNext: 'Next',
+			textDone: 'Exit',
+		};
+		const action = { data, type: 'SET_SETUP_NAVIGATION' };
+
+		const updatedSetupState = Immutable.merge(initialState.setup, {
+			navigation: data,
+		});
+
+		expect(SetupViewReducer(initialState, action)).toEqual({
+			setup: updatedSetupState
+		});
 	});
 
 	test('reducer correctly handles SET_BLOCKING_POLICY', () => {
@@ -141,5 +199,4 @@ describe('app/hub/Views/SetupView reducer', () => {
 
 		expect(SetupViewReducer(initState, action)).toEqual(updatedState);
 	});
-
 });

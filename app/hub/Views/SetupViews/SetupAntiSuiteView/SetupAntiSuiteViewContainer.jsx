@@ -12,6 +12,7 @@
  */
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import SetupAntiSuiteView from './SetupAntiSuiteView';
 
 /**
@@ -31,8 +32,30 @@ class SetupAntiSuiteViewContainer extends Component {
 	 * Lifecycle Event
 	 */
 	componentWillMount() {
-		const title = 'Ghostery Hub - Setup Anti-Suite';
+		const title = t('hub_setup_page_title_antisuite');
 		window.document.title = title;
+
+		const { index, setup } = this.props;
+		this.props.actions.setSetupNavigation({
+			activeIndex: index,
+			hrefPrev: `/setup/${index - 1}`,
+			hrefNext: `/setup/${index + 1}`,
+			hrefDone: '/',
+			textPrev: t('hub_setup_nav_previous'),
+			textNext: t('hub_setup_nav_next'),
+			textDone: t('hub_setup_exit_flow'),
+		});
+
+		const {
+			enable_anti_tracking,
+			enable_ad_block,
+			enable_smart_blocking,
+			enable_ghostery_rewards,
+		} = setup;
+		this.props.actions.setAntiTracking({ enable_anti_tracking });
+		this.props.actions.setAdBlock({ enable_ad_block });
+		this.props.actions.setSmartBlocking({ enable_smart_blocking });
+		this.props.actions.setGhosteryRewards({ enable_ghostery_rewards });
 	}
 
 	/**
@@ -79,43 +102,39 @@ class SetupAntiSuiteViewContainer extends Component {
 		const features = [
 			{
 				id: 'anti-tracking',
-				name: 'Enhanced Anti-Tracking',
+				name: t('hub_setup_antisuite_name_antitracking'),
 				enabled: enable_anti_tracking,
 				toggle: () => {
 					this._handleToggle('anti-tracking');
 				},
-				icon: '',
-				description: 'Anonymizes unblocked and unknown trackers for greater browsing protection.',
+				description: t('hub_setup_antisuite_description_antitracking'),
 			},
 			{
 				id: 'ad-block',
-				name: 'Enhanced Ad Blocking',
+				name: t('hub_setup_adblock_name_adblocking'),
 				enabled: enable_ad_block,
 				toggle: () => {
 					this._handleToggle('ad-block');
 				},
-				icon: '',
-				description: 'You can choose to show or block advertisements on all or selected websites.',
+				description: t('hub_setup_adblock_description_adblocking'),
 			},
 			{
 				id: 'smart-blocking',
-				name: 'Smart Blocking',
+				name: t('hub_setup_smartblocking_name_smartblocking'),
 				enabled: enable_smart_blocking,
 				toggle: () => {
 					this._handleToggle('smart-blocking');
 				},
-				icon: '',
-				description: 'Automatically blocks and unblocks trackers that are disrupting page performance.',
+				description: t('hub_setup_smartblocking_description_smartblocking'),
 			},
 			{
 				id: 'ghostery-rewards',
-				name: 'Ghostery Rewards',
+				name: t('hub_setup_ghosteryrewards_name_rewards'),
 				enabled: enable_ghostery_rewards,
 				toggle: () => {
 					this._handleToggle('ghostery-rewards');
 				},
-				icon: '',
-				description: 'Make Patrick proud and turn on his feature!',
+				description: t('hub_setup_ghosteryrewards_description_rewards'),
 			},
 		];
 		const componentProps = {
@@ -128,5 +147,17 @@ class SetupAntiSuiteViewContainer extends Component {
 		return <SetupAntiSuiteView features={features} />;
 	}
 }
+
+// PropTypes ensure we pass required props of the correct type
+SetupAntiSuiteViewContainer.propTypes = {
+	index: PropTypes.number.isRequired,
+	actions: PropTypes.shape({
+		setSetupNavigation: PropTypes.func.isRequired,
+		setAntiTracking: PropTypes.func.isRequired,
+		setAdBlock: PropTypes.func.isRequired,
+		setSmartBlocking: PropTypes.func.isRequired,
+		setGhosteryRewards: PropTypes.func.isRequired,
+	}).isRequired,
+};
 
 export default SetupAntiSuiteViewContainer;

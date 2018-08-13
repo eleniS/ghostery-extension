@@ -12,6 +12,7 @@
  */
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import SetupHumanWebView from './SetupHumanWebView';
 
 /**
@@ -31,8 +32,22 @@ class SetupHumanWebViewContainer extends Component {
 	 * Lifecycle Event
 	 */
 	componentWillMount() {
-		const title = 'Ghostery Hub - Setup Human Web';
+		const title = t('hub_setup_page_title_humanweb');
 		window.document.title = title;
+
+		const { index, setup } = this.props;
+		this.props.actions.setSetupNavigation({
+			activeIndex: index,
+			hrefPrev: `/setup/${index - 1}`,
+			hrefNext: `/setup/${index + 1}`,
+			hrefDone: '/',
+			textPrev: t('hub_setup_nav_previous'),
+			textNext: t('hub_setup_nav_next'),
+			textDone: t('hub_setup_exit_flow'),
+		});
+
+		const { enable_human_web } = setup;
+		this.props.actions.setHumanWeb({ enable_human_web });
 	}
 
 	/**
@@ -56,5 +71,14 @@ class SetupHumanWebViewContainer extends Component {
 		return <SetupHumanWebView {...childProps} />;
 	}
 }
+
+// PropTypes ensure we pass required props of the correct type
+SetupHumanWebViewContainer.propTypes = {
+	index: PropTypes.number.isRequired,
+	actions: PropTypes.shape({
+		setSetupNavigation: PropTypes.func.isRequired,
+		setHumanWeb: PropTypes.func.isRequired,
+	}).isRequired,
+};
 
 export default SetupHumanWebViewContainer;

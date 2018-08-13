@@ -24,6 +24,7 @@ const spawnSync = require('child_process').spawnSync;
 const BUILD_DIR = path.resolve(__dirname, 'dist');
 const CLIQZ_DIR = path.resolve(__dirname, 'cliqz');
 const SRC_DIR = path.resolve(__dirname, 'src');
+const SHARED_COMP_DIR = path.resolve(__dirname, 'app/shared-components');
 const PANEL_DIR = path.resolve(__dirname, 'app/panel');
 const PANEL_ANDROID_DIR = path.resolve(__dirname, 'app/panel-android');
 const HUB_DIR = path.resolve(__dirname, 'app/hub');
@@ -126,6 +127,7 @@ const config = {
 		rewards: [CONTENT_SCRIPTS_DIR + '/rewards'],
 		purplebox: [CONTENT_SCRIPTS_DIR + '/purplebox.js'],
 		content_script_bundle: [CLIQZ_DIR + '/core/content-script.bundle.js'],
+		shared_comp_react: [SHARED_COMP_DIR + '/index.js'],
 		panel_react: [PANEL_DIR + '/index.jsx'],
 		panel_android_react: [PANEL_ANDROID_DIR + '/index.jsx'],
 		hub_react: [HUB_DIR + '/index.jsx'],
@@ -165,7 +167,7 @@ const config = {
 				}
 			},{
 				test: /\.(jsx|js)?/,
-				include : [PANEL_ANDROID_DIR, PANEL_DIR, HUB_DIR, SETUP_DIR, LICENSES_DIR, CONTENT_SCRIPTS_DIR, REWARDS_DIR],
+				include : [SHARED_COMP_DIR, PANEL_ANDROID_DIR, PANEL_DIR, HUB_DIR, SETUP_DIR, LICENSES_DIR, CONTENT_SCRIPTS_DIR, REWARDS_DIR],
 				use: {
 					loader: 'babel-loader'
 				}

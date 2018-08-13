@@ -14,6 +14,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
+import { ToggleSwitch } from '../../../../shared-components';
 
 /**
  * A Functional React component for rendering the Setup Anti-Suite View
@@ -22,28 +23,38 @@ import ClassNames from 'classnames';
  */
 const SetupAntiSuiteView = props => (
 	<div className="row align-center">
-		<div className="columns">
+		<div className="columns small-12 medium-10 large-8">
 			{props.features.map((feature) => {
 				const iconClassNames = ClassNames(feature.id, {
+					SetupAntiSuite__icon: true,
 					active: feature.enabled,
 				});
 
 				return (
-					<div key={`feature-${feature.id}`} className="row align-center-middle">
+					<div key={`feature-${feature.id}`} className="SetupAntiSuite__feature row align-center-middle">
 						<div className="columns shrink">
 							<div className={iconClassNames} />
 						</div>
-						<div className="columns shrink" onClick={feature.toggle}>
-							<div>{feature.enabled.toString()}</div>
+						<div className="columns shrink">
+							<ToggleSwitch
+								checked={feature.enabled}
+								onChange={feature.toggle}
+							/>
 						</div>
 						<div className="columns small-12 large-8">
-							<h4 className="display-inline">{feature.name}</h4>
-							{feature.enabled && (
-								<h6 className="display-inline">
-									Enabled
-								</h6>
-							)}
-							<div>{feature.description}</div>
+							<div className="flex-container align-middle">
+								<div className="SetupAntiSuite__feature_title display-inline">
+									{feature.name}
+								</div>
+								{feature.enabled && (
+									<div className="SetupAntiSuite__feature_enabled display-inline">
+										{t('hub_setup_antisuite_feature_enabled')}
+									</div>
+								)}
+							</div>
+							<div className="SetupAntiSuite__feature_description">
+								{feature.description}
+							</div>
 						</div>
 					</div>
 				);
@@ -59,7 +70,6 @@ SetupAntiSuiteView.propTypes = {
 		name: PropTypes.string.isRequired,
 		enabled: PropTypes.bool.isRequired,
 		toggle: PropTypes.func.isRequired,
-		icon: PropTypes.string.isRequired,
 		description: PropTypes.string.isRequired,
 	})).isRequired,
 };

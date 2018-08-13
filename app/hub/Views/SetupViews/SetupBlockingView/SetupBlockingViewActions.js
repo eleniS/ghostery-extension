@@ -11,9 +11,17 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
-export function setBlockingPolicy(data) {
-	return {
-		type: 'SET_BLOCKING_POLICY',
-		data,
+import { log, sendMessageInPromise } from '../../../utils';
+
+export function setBlockingPolicy(actionData) {
+	return function (dispatch) {
+		return sendMessageInPromise('SET_BLOCKING_POLICY', actionData).then((data) => {
+			dispatch({
+				type: 'SET_BLOCKING_POLICY',
+				data,
+			});
+		}).catch((err) => {
+			log('setupBlocking Action setBlockingPolicy Error', err);
+		});
 	};
 }

@@ -17,10 +17,15 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router';
-import SetupView from './SetupView';
-import SetupHeader from '../SetupViews/SetupHeader';
-import SteppedNavigation from '../../SteppedNavigation';
 
+// Mock Necessary Imports
+jest.mock('../SetupViews/SetupHeader', () => props => <div>Mock Setup Header</div>);
+jest.mock('../SetupViews/SetupNavigation', () => props => <div>Mock Setup Navigation</div>);
+
+// Import Components
+import SetupView from './SetupView';
+
+// Mock Test Component
 const TestComponent = props => (
 	<div>test component</div>
 );
@@ -29,7 +34,6 @@ describe('app/hub/Views/SetupView component', () => {
 	describe('Snapshot tests with react-test-renderer', () => {
 		test('setup view is rendered correctly on first route', () => {
 			const initialState = {
-				activeIndex: 1,
 				steps: [
 					{
 						index: 1,
@@ -51,9 +55,8 @@ describe('app/hub/Views/SetupView component', () => {
 					},
 				],
 			};
-			const activeStep = initialState.steps.find(el => el.index === initialState.activeIndex);
 			const component = renderer.create(
-				<MemoryRouter initialEntries={[activeStep.path]} >
+				<MemoryRouter initialEntries={['/test/1']} >
 					<SetupView {...initialState} />
 				</MemoryRouter>
 			).toJSON();
@@ -62,7 +65,6 @@ describe('app/hub/Views/SetupView component', () => {
 
 		test('setup view is rendered correctly on last route', () => {
 			const initialState = {
-				activeIndex: 3,
 				steps: [
 					{
 						index: 1,
@@ -93,9 +95,8 @@ describe('app/hub/Views/SetupView component', () => {
 					},
 				],
 			};
-			const activeStep = initialState.steps.find(el => el.index === initialState.activeIndex);
 			const component = renderer.create(
-				<MemoryRouter initialEntries={[activeStep.path]} >
+				<MemoryRouter initialEntries={['/example/3']} >
 					<SetupView {...initialState} />
 				</MemoryRouter>
 			).toJSON();
@@ -106,7 +107,6 @@ describe('app/hub/Views/SetupView component', () => {
 	describe('More Snapshot tests with react-test-renderer, but for edge cases', () => {
 		test('edge case where steps is empty array', () => {
 			const initialState = {
-				activeIndex: 1,
 				steps: [],
 			};
 			const component = renderer.create(
@@ -119,7 +119,6 @@ describe('app/hub/Views/SetupView component', () => {
 
 		test('edge case where activeIndex not in steps index', () => {
 			const initialState = {
-				activeIndex: 4,
 				steps: [
 					{
 						index: 1,

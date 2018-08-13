@@ -26,7 +26,7 @@ exports[`app/hub/Views/SetupView container Snapshot tests with react-test-render
               <h3
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "Would you like to browse smarter with our recommended features?",
+                    "__html": "hub_setup_header_title_antisuite",
                   }
                 }
               />
@@ -40,7 +40,7 @@ exports[`app/hub/Views/SetupView container Snapshot tests with react-test-render
     </div>
   </div>
   <div>
-    Mock Stepped Navigation
+    Mock Setup Navigation
   </div>
 </div>
 `;
@@ -71,7 +71,7 @@ exports[`app/hub/Views/SetupView container Snapshot tests with react-test-render
               <h3
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "Ghostery can block trackers to make your browsing cleaner, faster, and safer. What would you like to block?",
+                    "__html": "hub_setup_header_title_blocking",
                   }
                 }
               />
@@ -85,7 +85,7 @@ exports[`app/hub/Views/SetupView container Snapshot tests with react-test-render
     </div>
   </div>
   <div>
-    Mock Stepped Navigation
+    Mock Setup Navigation
   </div>
 </div>
 `;
@@ -116,7 +116,7 @@ exports[`app/hub/Views/SetupView container Snapshot tests with react-test-render
               <h3
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "You are ready!",
+                    "__html": "hub_setup_header_title_done",
                   }
                 }
               />
@@ -130,7 +130,7 @@ exports[`app/hub/Views/SetupView container Snapshot tests with react-test-render
     </div>
   </div>
   <div>
-    Mock Stepped Navigation
+    Mock Setup Navigation
   </div>
 </div>
 `;
@@ -161,7 +161,7 @@ exports[`app/hub/Views/SetupView container Snapshot tests with react-test-render
               <h3
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "Would you like to help improve Ghostery?",
+                    "__html": "hub_setup_header_title_humanweb",
                   }
                 }
               />
@@ -175,7 +175,7 @@ exports[`app/hub/Views/SetupView container Snapshot tests with react-test-render
     </div>
   </div>
   <div>
-    Mock Stepped Navigation
+    Mock Setup Navigation
   </div>
 </div>
 `;

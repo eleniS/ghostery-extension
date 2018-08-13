@@ -17,21 +17,18 @@ import { shallow } from 'enzyme';
 import { MemoryRouter } from 'react-router';
 import SteppedNavigation from './SteppedNavigation';
 
-describe('app/hub/SteppedNavigation', () => {
+describe('app/shared-components/SteppedNavigation', () => {
 	describe('Snapshot tests with react-test-renderer', () => {
 		test('stepped navigation is rendered correctly on first step', () => {
 			const initialState = {
-				steps: [
-					{ index: 1, path: '/test/1' },
-					{ index: 2, path: '/test/2' },
-					{ index: 3, path: '/test/3' },
-					{ index: 4, path: '/test/4' },
-					{ index: 5, path: '/test/5' },
-					{ index: 6, path: '/test/6' },
-				],
+				totalSteps: 6,
 				activeIndex: 1,
+				hrefPrev: false,
+				hrefNext: '/test/2',
 				hrefDone: '/',
-				exitText: 'Exit',
+				textPrev: false,
+				textNext: 'Next',
+				textDone: 'Exit',
 			};
 			const component = renderer.create(
 				<MemoryRouter>
@@ -43,14 +40,14 @@ describe('app/hub/SteppedNavigation', () => {
 
 		test('stepped navigation is rendered correctly on second step', () => {
 			const initialState = {
-				steps: [
-					{ index: 1, path: '/example/1' },
-					{ index: 2, path: '/example/2' },
-					{ index: 3, path: '/example/3' },
-				],
+				totalSteps: 3,
 				activeIndex: 2,
+				hrefPrev: '/test/1',
+				hrefNext: '/test/3',
 				hrefDone: '/more-examples',
-				exitText: 'Leave',
+				textPrev: 'Previous',
+				textNext: 'Foreward',
+				textDone: 'Leave',
 			};
 			const component = renderer.create(
 				<MemoryRouter>
@@ -62,15 +59,16 @@ describe('app/hub/SteppedNavigation', () => {
 
 		test('stepped navigation is rendered correctly on last step', () => {
 			const initialState = {
-				steps: [
-					{ index: 1, path: '/test/1' },
-					{ index: 2, path: '/test/2' },
-					{ index: 3, path: '/test/3' },
-				],
+				totalSteps: 3,
 				activeIndex: 3,
-				hrefDone: '',
-				exitText: 'Not Shown',
+				hrefPrev: '/test/2',
+				hrefNext: false,
+				hrefDone: false,
+				textPrev: 'Back',
+				textNext: 'Not Shown',
+				textDone: 'Also Not Shown',
 			};
+
 			const component = renderer.create(
 				<MemoryRouter>
 					<SteppedNavigation {...initialState} />
@@ -81,12 +79,16 @@ describe('app/hub/SteppedNavigation', () => {
 	});
 
 	describe('More Snapshot tests with react-test-renderer, but for edge cases', () => {
-		test('edge case where steps is empty array', () => {
+		test('edge case where activeIndex beyond totalSteps', () => {
 			const initialState = {
-				steps: [],
-				activeIndex: 1,
-				hrefDone: '/',
-				exitText: 'Exit',
+				totalSteps: 3,
+				activeIndex: 4,
+				hrefPrev: '/test/1',
+				hrefNext: '/',
+				hrefDone: false,
+				textPrev: 'Beginning',
+				textNext: 'Exit',
+				textDone: 'Not Shown',
 			};
 			const component = renderer.create(
 				<MemoryRouter>
@@ -96,35 +98,16 @@ describe('app/hub/SteppedNavigation', () => {
 			expect(component).toMatchSnapshot();
 		});
 
-		test('edge case where activeIndex not in steps index', () => {
+		test('edge case where hrefDone is set but textDone is not', () => {
 			const initialState = {
-				steps: [
-					{ index: 1, path: '/test/1' },
-					{ index: 2, path: '/test/2' },
-					{ index: 3, path: '/test/3' },
-				],
-				activeIndex: 0,
-				hrefDone: '/',
-				exitText: 'Exit',
-			};
-			const component = renderer.create(
-				<MemoryRouter>
-					<SteppedNavigation {...initialState} />
-				</MemoryRouter>
-			).toJSON();
-			expect(component).toMatchSnapshot();
-		});
-
-		test('edge case where exitText is not set', () => {
-			const initialState = {
-				steps: [
-					{ index: 1, path: '/test/1' },
-					{ index: 2, path: '/test/2' },
-					{ index: 3, path: '/test/3' },
-				],
+				totalSteps: 3,
 				activeIndex: 1,
+				hrefPrev: false,
+				hrefNext: '/step/2',
 				hrefDone: '/',
-				exitText: '',
+				textPrev: 'Not Shown',
+				textNext: 'Next',
+				textDone: false,
 			};
 			const component = renderer.create(
 				<MemoryRouter>
@@ -138,79 +121,112 @@ describe('app/hub/SteppedNavigation', () => {
 	describe('Shallow snapshot tests rendered with Enzyme', () => {
 		test('the happy path of the component', () => {
 			const initialState = {
-				steps: [
-					{ index: 1, path: '/test/1' },
-					{ index: 2, path: '/test/2' },
-					{ index: 3, path: '/test/3' },
-				],
+				totalSteps: 3,
 				activeIndex: 1,
+				hrefPrev: false,
+				hrefNext: '/test/2',
 				hrefDone: '/',
-				exitText: 'Exit',
+				textPrev: false,
+				textNext: 'Next',
+				textDone: 'Exit',
 			};
+
 			const component = shallow(<SteppedNavigation {...initialState} />);
 			expect(component.find('.SteppedNavigation__exit').length).toBe(1);
 			expect(component.find('.SteppedNavigation__exitText').length).toBe(1);
 			expect(component.find('.SteppedNavigation__exitIcon').length).toBe(1);
+			expect(component.find('.SteppedNavigation__buttonContainer').length).toBe(2);
 			expect(component.find('.SteppedNavigation__buttonContainer .button').length).toBe(1);
+			expect(component.find('.SteppedNavigation__circles NavLink').length).toBe(2);
 			expect(component.find('.SteppedNavigation__circles a.active').length).toBe(1);
 
-			component.setProps({ activeIndex: 2 });
+			component.setProps({
+				activeIndex: 2,
+				hrefPrev: '/test/1',
+				hrefNext: '/test/3',
+				textPrev: 'Back',
+			});
 			expect(component.find('.SteppedNavigation__exit').length).toBe(1);
 			expect(component.find('.SteppedNavigation__exitText').length).toBe(1);
 			expect(component.find('.SteppedNavigation__exitIcon').length).toBe(1);
+			expect(component.find('.SteppedNavigation__buttonContainer').length).toBe(2);
 			expect(component.find('.SteppedNavigation__buttonContainer .button').length).toBe(2);
+			expect(component.find('.SteppedNavigation__circles NavLink').length).toBe(2);
 			expect(component.find('.SteppedNavigation__circles a.active').length).toBe(1);
 
-			component.setProps({ activeIndex: 3 });
+			component.setProps({
+				activeIndex: 3,
+				hrefPrev: '/test/2',
+				hrefNext: '/',
+				hrefDone: false,
+				textNext: 'Done',
+				textDone: false,
+			});
 			expect(component.find('.SteppedNavigation__exit').length).toBe(0);
 			expect(component.find('.SteppedNavigation__exitText').length).toBe(0);
 			expect(component.find('.SteppedNavigation__exitIcon').length).toBe(0);
+			expect(component.find('.SteppedNavigation__buttonContainer').length).toBe(2);
 			expect(component.find('.SteppedNavigation__buttonContainer .button').length).toBe(2);
+			expect(component.find('.SteppedNavigation__circles NavLink').length).toBe(2);
 			expect(component.find('.SteppedNavigation__circles a.active').length).toBe(1);
 		});
 
-		test('the non-happy path of the component', () => {
+		test('the edge cases of the component', () => {
 			const initialState = {
-				steps: [
-					{ index: 1, path: '/test/1' },
-					{ index: 2, path: '/test/2' },
-					{ index: 3, path: '/test/3' },
-				],
+				totalSteps: 3,
 				activeIndex: 1,
+				hrefPrev: false,
+				hrefNext: '/test/2',
 				hrefDone: '/',
-				exitText: 'Exit',
+				textPrev: false,
+				textNext: 'Next',
+				textDone: 'Exit',
 			};
+
 			// Happy State
 			const component = shallow(<SteppedNavigation {...initialState} />);
 			expect(component.find('.SteppedNavigation__exit').length).toBe(1);
 			expect(component.find('.SteppedNavigation__exitText').length).toBe(1);
 			expect(component.find('.SteppedNavigation__exitIcon').length).toBe(1);
+			expect(component.find('.SteppedNavigation__buttonContainer').length).toBe(2);
 			expect(component.find('.SteppedNavigation__buttonContainer .button').length).toBe(1);
+			expect(component.find('.SteppedNavigation__circles NavLink').length).toBe(2);
 			expect(component.find('.SteppedNavigation__circles a.active').length).toBe(1);
 
-			// Unhappy State: activeIndex is not a valid index in steps array
-			component.setProps({ activeIndex: 0 });
+			// Edge Case: activeIndex greater than the number of totalSteps
+			component.setProps({
+				activeIndex: 4,
+				hrefPrev: '/test/1',
+				hrefNext: '/',
+				textPrev: 'Beginning',
+				textNext: 'Exit',
+			});
 			expect(component.find('.SteppedNavigation__exit').length).toBe(1);
 			expect(component.find('.SteppedNavigation__exitText').length).toBe(1);
 			expect(component.find('.SteppedNavigation__exitIcon').length).toBe(1);
-			expect(component.find('.SteppedNavigation__buttonContainer .button').length).toBe(0);
+			expect(component.find('.SteppedNavigation__buttonContainer').length).toBe(2);
+			expect(component.find('.SteppedNavigation__buttonContainer .button').length).toBe(2);
+			expect(component.find('.SteppedNavigation__circles NavLink').length).toBe(3);
 			expect(component.find('.SteppedNavigation__circles a.active').length).toBe(0);
 
-			// Unhappy State: exitText is the empty string
-			component.setProps({ activeIndex: 2, exitText: '' });
+			// Edge Case: textDone is false
+			component.setProps({ textDone: false });
 			expect(component.find('.SteppedNavigation__exit').length).toBe(1);
 			expect(component.find('.SteppedNavigation__exitText').length).toBe(0);
 			expect(component.find('.SteppedNavigation__exitIcon').length).toBe(1);
+			expect(component.find('.SteppedNavigation__buttonContainer').length).toBe(2);
 			expect(component.find('.SteppedNavigation__buttonContainer .button').length).toBe(2);
-			expect(component.find('.SteppedNavigation__circles a.active').length).toBe(1);
+			expect(component.find('.SteppedNavigation__circles NavLink').length).toBe(3);
+			expect(component.find('.SteppedNavigation__circles a.active').length).toBe(0);
 
-			// Unhappy State: steps is an empty array
-			component.setProps({ steps: [] });
-			expect(component.find('.SteppedNavigation__isNull').length).toBe(1);
+			// Edge Case: hrefDone and textDone are false
+			component.setProps({ hrefDone: false });
 			expect(component.find('.SteppedNavigation__exit').length).toBe(0);
 			expect(component.find('.SteppedNavigation__exitText').length).toBe(0);
 			expect(component.find('.SteppedNavigation__exitIcon').length).toBe(0);
-			expect(component.find('.SteppedNavigation__buttonContainer .button').length).toBe(0);
+			expect(component.find('.SteppedNavigation__buttonContainer').length).toBe(2);
+			expect(component.find('.SteppedNavigation__buttonContainer .button').length).toBe(2);
+			expect(component.find('.SteppedNavigation__circles NavLink').length).toBe(3);
 			expect(component.find('.SteppedNavigation__circles a.active').length).toBe(0);
 		});
 	});

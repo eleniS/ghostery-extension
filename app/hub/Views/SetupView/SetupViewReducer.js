@@ -16,9 +16,9 @@ const initialState = {};
 function SetupViewReducer(state = initialState, action) {
 	switch (action.type) {
 		// Setup View
-		case 'INIT_SETUP_PROPS': {
+		case 'GET_SETTINGS_BACKUP': {
 			const {
-				blockingPolicy,
+				selected_app_ids,
 				enable_anti_tracking,
 				enable_ad_block,
 				enable_smart_blocking,
@@ -26,7 +26,50 @@ function SetupViewReducer(state = initialState, action) {
 				enable_human_web,
 			} = action.data;
 			return Object.assign({}, state, {
+				setup: Object.assign({}, state.setup, {
+					settings_backup: {
+						selected_app_ids,
+						enable_anti_tracking,
+						enable_ad_block,
+						enable_smart_blocking,
+						enable_ghostery_rewards,
+						enable_human_web,
+					},
+				}),
+			});
+		}
+		case 'INIT_SETUP_PROPS': {
+			const {
+				navigation,
+				settings_backup,
+				blockingPolicy,
+				enable_anti_tracking,
+				enable_ad_block,
+				enable_smart_blocking,
+				enable_ghostery_rewards,
+				enable_human_web,
+			} = action.data;
+			const {
+				activeIndex,
+				hrefPrev,
+				hrefNext,
+				hrefDone,
+				textPrev,
+				textNext,
+				textDone,
+			} = navigation;
+			return Object.assign({}, state, {
 				setup: {
+					navigation: {
+						activeIndex,
+						hrefPrev,
+						hrefNext,
+						hrefDone,
+						textPrev,
+						textNext,
+						textDone,
+					},
+					settings_backup,
 					blockingPolicy,
 					enable_anti_tracking,
 					enable_ad_block,
@@ -34,6 +77,30 @@ function SetupViewReducer(state = initialState, action) {
 					enable_ghostery_rewards,
 					enable_human_web,
 				},
+			});
+		}
+		case 'SET_SETUP_NAVIGATION': {
+			const {
+				activeIndex,
+				hrefPrev,
+				hrefNext,
+				hrefDone,
+				textPrev,
+				textNext,
+				textDone,
+			} = action.data;
+			return Object.assign({}, state, {
+				setup: Object.assign({}, state.setup, {
+					navigation: {
+						activeIndex,
+						hrefPrev,
+						hrefNext,
+						hrefDone,
+						textPrev,
+						textNext,
+						textDone,
+					},
+				}),
 			});
 		}
 

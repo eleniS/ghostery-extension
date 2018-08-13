@@ -11,16 +11,36 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import * as utils from '../../../utils';
 import * as SetupHumanWebViewActions from './SetupHumanWebViewActions';
 
-describe('app/hub/Views/SetupView/SetupHumanWebView actions', () => {
+const middlewares = [thunk];
+const mockStore = configureStore(middlewares);
+
+const testData = { test: true };
+utils.sendMessageInPromise = jest.fn((name, message) => new Promise((resolve, reject) => {
+	switch (name) {
+		case 'SET_HUMAN_WEB': {
+			resolve(message);
+			break;
+		}
+		default: resolve(message);
+	}
+}));
+
+describe('app/hub/Views/SetupViews/SetupHumanWebView actions', () => {
 	test('setHumanWeb action should return correctly', () => {
-		const testData = {
-			test: 'test-data',
-		};
-		expect(SetupHumanWebViewActions.setHumanWeb(testData)).toEqual({
-			type: 'SET_HUMAN_WEB',
-			data: testData,
+		const initialState = {};
+		const store = mockStore(initialState);
+
+		const data = testData;
+		const expectedPayload = { data, type: 'SET_HUMAN_WEB' };
+
+		return store.dispatch(SetupHumanWebViewActions.setHumanWeb(data)).then(() => {
+			const actions = store.getActions();
+			expect(actions).toEqual([expectedPayload]);
 		});
 	});
 });

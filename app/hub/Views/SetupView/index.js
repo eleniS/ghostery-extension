@@ -17,6 +17,14 @@ import { bindActionCreators } from 'redux';
 import SetupViewContainer from './SetupViewContainer';
 import SetupViewReducer from './SetupViewReducer';
 import * as SetupViewActions from './SetupViewActions';
+import { setBlockingPolicy } from '../SetupViews/SetupBlockingView/SetupBlockingViewActions';
+import {
+	setAntiTracking,
+	setAdBlock,
+	setSmartBlocking,
+	setGhosteryRewards
+} from '../SetupViews/SetupAntiSuiteView/SetupAntiSuiteViewActions';
+import { setHumanWeb } from '../SetupViews/SetupHumanWebView/SetupHumanWebViewActions';
 
 /**
  * Map redux store state properties to the component's own properties.
@@ -35,7 +43,14 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, state.setup);
  * @memberof SetupContainers
  */
 const mapDispatchToProps = (dispatch, ownProps) => ({
-	actions: bindActionCreators(Object.assign(SetupViewActions), dispatch),
+	actions: bindActionCreators(Object.assign(SetupViewActions, {
+		setBlockingPolicy,
+		setAntiTracking,
+		setAdBlock,
+		setSmartBlocking,
+		setGhosteryRewards,
+		setHumanWeb,
+	}), dispatch),
 });
 
 export const reducer = SetupViewReducer;

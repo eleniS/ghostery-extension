@@ -1593,6 +1593,174 @@
 	"setup_upgrade_button_go": {
 		"message": "Set Me Up"
 	},
+
+	"hub_setup_page_title": {
+		"message": "Ghostery Hub - Setup"
+	},
+	"hub_setup_page_title_blocking": {
+		"message": "Ghostery Hub - Setup Blocking"
+	},
+	"hub_setup_page_title_antisuite": {
+		"message": "Ghostery Hub - Setup Anti-Suite"
+	},
+	"hub_setup_page_title_humanweb": {
+		"message": "Ghostery Hub - Setup Human Web"
+	},
+	"hub_setup_page_title_done": {
+		"message": "Ghostery Hub - Setup Complete"
+	},
+	"hub_setup_header_title_blocking": {
+		"message": "Ghostery can block trackers to make your browsing cleaner, faster, and safer. What would you like to block?"
+	},
+	"hub_setup_header_title_antisuite": {
+		"message": "Would you like to browse smarter with our recommended features?"
+	},
+	"hub_setup_header_title_humanweb": {
+		"message": "Would you like to help improve Ghostery?"
+	},
+	"hub_setup_header_title_done": {
+		"message": "$BOLD_START$You're All Set!$BOLD_END$$CONTAINER_START$Custom setup complete! Ghostery will quietly live here in your browser bar.$CONTAINER_END$",
+		"placeholders": {
+			"bold_start": {
+				"content":  "<b>"
+			},
+			"bold_end": {
+				"content":  "</b>"
+			},
+			"container_start": {
+				"content":  "<div class='SetupDone__header'>"
+			},
+			"container_end": {
+				"content":  "</div>"
+			}
+		}
+	},
+	"hub_setup_exit_flow": {
+		"message": "Exit Custom Setup"
+	},
+	"hub_setup_nav_previous": {
+		"message": "Previous"
+	},
+	"hub_setup_nav_next": {
+		"message": "Next"
+	},
+	"hub_setup_nav_done": {
+		"message": "Done"
+	},
+
+	"hub_setup_blocking_above_recommended": {
+		"message": "Recommended"
+	},
+	"hub_setup_blocking_text_recommended": {
+		"message": "Block Default"
+	},
+	"hub_setup_blocking_description_recommended": {
+		"message": "Advertising, Site Analytics, and Adult Advertising trackers blocked"
+	},
+	"hub_setup_blocking_text_nothing": {
+		"message": "Block Nothing"
+	},
+	"hub_setup_blocking_description_nothing": {
+		"message": "No trackers blocked"
+	},
+	"hub_setup_blocking_text_everything": {
+		"message": "Block Everyting"
+	},
+	"hub_setup_blocking_description_everything": {
+		"message": "All trackers blocked"
+	},
+	"hub_setup_blocking_text_custom": {
+		"message": "Choose from List"
+	},
+	"hub_setup_blocking_description_custom": {
+		"message": "Choose trackers to block"
+	},
+
+	"hub_setup_antisuite_name_antitracking": {
+		"message": "Enhanced Anti-Tracking"
+	},
+	"hub_setup_antisuite_description_antitracking": {
+		"message": "Anonymize unblocked and unknown trackers for greater browsing protection."
+	},
+	"hub_setup_adblock_name_adblocking": {
+		"message": "Enhanced Ad Blocking"
+	},
+	"hub_setup_adblock_description_adblocking": {
+		"message": "Block advertisements on websites you visit."
+	},
+	"hub_setup_smartblocking_name_smartblocking": {
+		"message": "Smart Blocking"
+	},
+	"hub_setup_smartblocking_description_smartblocking": {
+		"message": "Automatically block and unblock trackers to optimize page performance."
+	},
+	"hub_setup_ghosteryrewards_name_rewards": {
+		"message": "Rewards"
+	},
+	"hub_setup_ghosteryrewards_description_rewards": {
+		"message": "Unlock special offers as you browse and make purchases without sharing any data."
+	},
+	"hub_setup_antisuite_feature_enabled": {
+		"message": "Enabled"
+	},
+
+	"hub_setup_humanweb_header": {
+		"message": "We use anonymous analytics and $LINK_HW_START$Human Web$LINK_HW_END$ data to improve Ghostery’s performance and provide Rewards. No personal data is ever collected.$NEW_LINE$$LINK_LM_START$Learn More$LINK_LM_END$",
+		"placeholders": {
+			"link_hw_start": {
+				"content": "<a href=\"https://cliqz.com\" target=\"_blank\">"
+			},
+			"link_hw_end": {
+				"content": "</a>"
+			},
+			"link_lm_start": {
+				"content": "<a href=\"https://cliqz.com\" target=\"_blank\">"
+			},
+			"link_lm_end": {
+				"content": "</a>"
+			},
+			"new_line": {
+				"content": "<br />"
+			}
+		}
+	},
+	"hub_setup_humanweb_label": {
+		"message": "Support Ghostery by sharing this information"
+	},
+	"hub_setup_ready_title": {
+		"message": "Custom setup complete! Ghostery will quietly live here in your browser bar."
+	},
+	"hub_setup_ready_heading": {
+		"message": "Check these out!"
+	},
+	"hub_setup_feature_tutorial_title": {
+		"message": "Take a tutorial"
+	},
+	"hub_setup_feature_tutorial_description": {
+		"message": "A walk-through of Ghostery's features and highlights."
+	},
+	"hub_setup_feature_tutorial_button": {
+		"message": "Visit Tutorial"
+	},
+	"hub_setup_feature_supporter_title": {
+		"message": "Become a Ghostery Supporter"
+	},
+	"hub_setup_feature_supporter_description": {
+		"message": "Support Ghostery and unlock additional features."
+	},
+	"hub_setup_feature_supporter_button": {
+		"message": "Support"
+	},
+	"hub_setup_feature_products_title": {
+		"message": "Try other Ghostery Products"
+	},
+	"hub_setup_feature_products_description": {
+		"message": "Did you know Ghostery has other useful Privacy products? Try them out!"
+	},
+	"hub_setup_feature_products_button": {
+		"message": "Yes, Please!"
+	},
+
 	"enable_when_paused": {
 		"message": "To use this function, Resume Ghostery."
 	},

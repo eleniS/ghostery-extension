@@ -16,7 +16,7 @@ import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 
 // Components
-import SteppedNavigation from '../../SteppedNavigation';
+import TutorialNavigation from '../TutorialViews/TutorialNavigation';
 
 /**
  * A Functional React component for rendering the Tutorial View
@@ -39,18 +39,12 @@ const TutorialView = props => (
 			))}
 		</div>
 
-		<SteppedNavigation
-			steps={props.steps}
-			activeIndex={props.activeIndex}
-			hrefDone="/"
-			exitText="Exit Tutorial"
-		/>
+		<TutorialNavigation steps={props.steps} />
 	</div>
 );
 
 // PropTypes ensure we pass required props of the correct type
 TutorialView.propTypes = {
-	activeIndex: PropTypes.number.isRequired,
 	steps: PropTypes.arrayOf(PropTypes.shape({
 		index: PropTypes.number.isRequired,
 		path: PropTypes.string.isRequired,

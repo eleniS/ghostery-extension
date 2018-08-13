@@ -14,6 +14,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
+import { ToggleCheckbox } from '../../../../shared-components';
 
 /**
  * A Functional React component for rendering the Setup Human Web View
@@ -21,9 +22,21 @@ import ClassNames from 'classnames';
  * @memberof HubComponents
  */
 const SetupHumanWebView = props => (
-	<div className="setup-human-web-view">
-		<h4>Human Web View</h4>
-		<div onClick={props.changeHumanWeb}>{props.enableHumanWeb.toString()}</div>
+	<div className="row align-center">
+		<div className="columns small-12 large-10">
+			<div className="SetupHumanWeb">
+				<div className="SetupHumanWeb__header" dangerouslySetInnerHTML={{ __html: t('hub_setup_humanweb_header') }} />
+				<div className="flex-container align-middle">
+					<ToggleCheckbox
+						checked={props.enableHumanWeb}
+						onChange={props.changeHumanWeb}
+					/>
+					<span className="SetupHumanWeb__label" onClick={props.changeHumanWeb}>
+						{ t('hub_setup_humanweb_label') }
+					</span>
+				</div>
+			</div>
+		</div>
 	</div>
 );
 

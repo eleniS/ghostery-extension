@@ -5,7 +5,7 @@ exports[`app/hub/Views/SetupViews/SetupAntiSuiteView component More Snapshot tes
   className="row align-center"
 >
   <div
-    className="columns"
+    className="columns small-12 medium-10 large-8"
   />
 </div>
 `;
@@ -15,71 +15,97 @@ exports[`app/hub/Views/SetupViews/SetupAntiSuiteView component Snapshot tests wi
   className="row align-center"
 >
   <div
-    className="columns"
+    className="columns small-12 medium-10 large-8"
   >
     <div
-      className="row align-center-middle"
+      className="SetupAntiSuite__feature row align-center-middle"
     >
       <div
         className="columns shrink"
       >
         <div
-          className="test-feature-1 active"
+          className="test-feature-1 SetupAntiSuite__icon active"
         />
       </div>
       <div
         className="columns shrink"
-        onClick={[Function]}
       >
-        <div>
-          true
+        <div
+          className="ToggleSwitch ToggleSwitch--active"
+          onClick={[Function]}
+        >
+          <div
+            className="ToggleSwitch__bar"
+          />
+          <span
+            className="ToggleSwitch__circle"
+          />
         </div>
       </div>
       <div
         className="columns small-12 large-8"
       >
-        <h4
-          className="display-inline"
+        <div
+          className="flex-container align-middle"
         >
-          Test Feature One
-        </h4>
-        <h6
-          className="display-inline"
+          <div
+            className="SetupAntiSuite__feature_title display-inline"
+          >
+            Test Feature One
+          </div>
+          <div
+            className="SetupAntiSuite__feature_enabled display-inline"
+          >
+            hub_setup_antisuite_feature_enabled
+          </div>
+        </div>
+        <div
+          className="SetupAntiSuite__feature_description"
         >
-          Enabled
-        </h6>
-        <div>
           The first test feature
         </div>
       </div>
     </div>
     <div
-      className="row align-center-middle"
+      className="SetupAntiSuite__feature row align-center-middle"
     >
       <div
         className="columns shrink"
       >
         <div
-          className="test-feature-2"
+          className="test-feature-2 SetupAntiSuite__icon"
         />
       </div>
       <div
         className="columns shrink"
-        onClick={[Function]}
       >
-        <div>
-          false
+        <div
+          className="ToggleSwitch"
+          onClick={[Function]}
+        >
+          <div
+            className="ToggleSwitch__bar"
+          />
+          <span
+            className="ToggleSwitch__circle"
+          />
         </div>
       </div>
       <div
         className="columns small-12 large-8"
       >
-        <h4
-          className="display-inline"
+        <div
+          className="flex-container align-middle"
         >
-          Test Feature Two
-        </h4>
-        <div>
+          <div
+            className="SetupAntiSuite__feature_title display-inline"
+          >
+            Test Feature Two
+          </div>
+        </div>
+        <div
+          className="SetupAntiSuite__feature_description"
+        >
           The second test feature
         </div>
       </div>

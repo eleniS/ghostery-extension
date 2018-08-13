@@ -22,10 +22,23 @@ jest.mock('../SetupViews/SetupBlockingView', () => props => <div>Mock Setup Bloc
 jest.mock('../SetupViews/SetupAntiSuiteView', () => props => <div>Mock Setup Anti-Suite View</div>);
 jest.mock('../SetupViews/SetupHumanWebView', () => props => <div>Mock Setup Human Web View</div>);
 jest.mock('../SetupViews/SetupDoneView', () => props => <div>Mock Setup Done View</div>);
-jest.mock('../../SteppedNavigation', () => props => <div>Mock Stepped Navigation</div>);
+jest.mock('../SetupViews/SetupNavigation', () => props => <div>Mock Setup Navigation</div>);
 
 // Import Components
 import SetupViewContainer from './SetupViewContainer';
+
+// Fake Actions
+const actions = {
+	initSetupProps: () => {},
+	setSetupNavigation: () => {},
+	getSettingsBackup: () => new Promise((resolve) => resolve),
+	setBlockingPolicy: () => {},
+	setAntiTracking: () => {},
+	setAdBlock: () => {},
+	setSmartBlocking: () => {},
+	setGhosteryRewards: () => {},
+	setHumanWeb: () => {},
+};
 
 describe('app/hub/Views/SetupView container', () => {
 	describe('Snapshot tests with react-test-renderer', () => {
@@ -33,7 +46,7 @@ describe('app/hub/Views/SetupView container', () => {
 			const paths = ['/setup/1', '/setup/2', '/setup/3', '/setup/4'];
 			const component = renderer.create(
 				<MemoryRouter initialEntries={paths} initialIndex={0} >
-					<SetupViewContainer />
+					<SetupViewContainer actions={actions} />
 				</MemoryRouter>
 			).toJSON();
 			expect(component).toMatchSnapshot();
@@ -43,7 +56,7 @@ describe('app/hub/Views/SetupView container', () => {
 			const paths = ['/setup/1', '/setup/2', '/setup/3', '/setup/4'];
 			const component = renderer.create(
 				<MemoryRouter initialEntries={paths} initialIndex={1} >
-					<SetupViewContainer />
+					<SetupViewContainer actions={actions} />
 				</MemoryRouter>
 			).toJSON();
 			expect(component).toMatchSnapshot();
@@ -53,7 +66,7 @@ describe('app/hub/Views/SetupView container', () => {
 			const paths = ['/setup/1', '/setup/2', '/setup/3', '/setup/4'];
 			const component = renderer.create(
 				<MemoryRouter initialEntries={paths} initialIndex={2} >
-					<SetupViewContainer />
+					<SetupViewContainer actions={actions} />
 				</MemoryRouter>
 			).toJSON();
 			expect(component).toMatchSnapshot();
@@ -63,7 +76,7 @@ describe('app/hub/Views/SetupView container', () => {
 			const paths = ['/setup/1', '/setup/2', '/setup/3', '/setup/4'];
 			const component = renderer.create(
 				<MemoryRouter initialEntries={paths} initialIndex={3} >
-					<SetupViewContainer />
+					<SetupViewContainer actions={actions} />
 				</MemoryRouter>
 			).toJSON();
 			expect(component).toMatchSnapshot();

@@ -1,5 +1,5 @@
 /**
- * Setup Header Sass
+ * Setup Blocking View Sass
  *
  * Ghostery Browser Extension
  * https://www.ghostery.com/
@@ -19,7 +19,7 @@
 	line-height: 23px;
 	text-align: center;
 }
-.SetupBlocking__belowText {
+.SetupBlocking__description {
 	display: none;
 	max-width: 180px;
 	margin-top: 30px;
@@ -38,8 +38,8 @@
 .SetupBlocking__choiceBox:hover {
 	border-color: #930194;
 }
-.SetupBlocking--selected + .SetupBlocking__belowText,
-.SetupBlocking__choiceBox:hover + .SetupBlocking__belowText {
+.SetupBlocking--selected + .SetupBlocking__description,
+.SetupBlocking__choiceBox:hover + .SetupBlocking__description {
 	display: block;
 }
 .SetupBlocking input {

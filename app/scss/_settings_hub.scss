@@ -70,11 +70,11 @@ $global-font-size: 100%;
 $global-width: rem-calc(1000);
 $global-lineheight: 1.5;
 $foundation-palette: (
-	primary: $link-blue,
-	secondary: $orange,
-	success: $caper,
+	primary: #1dafed,
+	secondary: #4a4a4a,
+	success: #930194,
 	warning: #ffae00,
-	alert: $red,
+	alert: #cc4b37,
 );
 $body-background: $white;
 $body-font-color: $tundora;

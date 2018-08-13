@@ -23,28 +23,30 @@
 	position: absolute;
 	top: 0;
 	right: 0;
-	margin: 18px 20px;
-	padding: 15px 10px;
+	margin: 18px 33px;
+	padding: 11px 13px;
+	border-radius: 3px;
 }
 .SteppedNavigation__exitText {
+	font-size: 11px;
 	color: #4a4a4a;
 	margin-right: 15px;
 }
 .SteppedNavigation__exitIcon {
-	height: 20px;
-	width: 20px;
+	height: 15px;
+	width: 15px;
+	margin: 0 auto;
+	background-repeat: no-repeat;
+	background-position: center center;
 	background-image: buildIconX(#4a4a4a);
 }
-.SteppedNavigation__exit:hover .SteppedNavigation__exitText {
-	color: black;
-}
-.SteppedNavigation__exit:hover .SteppedNavigation__exitIcon {
-	background-image: buildIconX(#000000);
+.SteppedNavigation__exit:hover {
+	background-color: #efefef;
 }
 
 // Bottom Navigation Circles and Buttons
 .SteppedNavigation {
-	margin: 15px 0 45px;
+	margin: 60px 0 45px;
 }
 .SteppedNavigation__buttonContainer {
 	width: 250px;

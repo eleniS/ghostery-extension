@@ -26,9 +26,11 @@ const SetupBlockingView = props => (
 			<div className="SetupBlocking">
 				<div className="row small-up-4">
 					{props.choices.map((choice) => {
-						const choiceBoxClassNames = ClassNames('flex-container', 'flex-dir-column', {
+						const choiceSelected = choice.name === props.blockingPolicy;
+						const bigCheckSrc = '/app/images/hub/setup/block-selected.svg';
+						const choiceBoxClassNames = ClassNames('clickable', 'flex-container', 'flex-dir-column', {
 							SetupBlocking__choiceBox: true,
-							'SetupBlocking--selected': choice.name === props.blockingPolicy,
+							'SetupBlocking--selected': choiceSelected,
 						});
 
 						return (
@@ -37,13 +39,13 @@ const SetupBlockingView = props => (
 									<div className="SetupBlocking__aboveText">{choice.aboveText}</div>
 									<label htmlFor={`input-block-${choice.name}`} className={choiceBoxClassNames}>
 										<div className="SetupBlocking__imageContainer flex-container align-center-middle">
-											<img src={choice.image} />
+											<img src={choiceSelected ? bigCheckSrc : choice.image} />
 										</div>
 										<div className="SetupBlocking__textContainer flex-child-grow flex-container align-center-middle">
 											{choice.text}
 										</div>
 									</label>
-									<div className="SetupBlocking__belowText">{choice.belowText}</div>
+									<div className="SetupBlocking__description">{choice.description}</div>
 								</div>
 
 								<input
@@ -72,7 +74,7 @@ SetupBlockingView.propTypes = {
 		image: PropTypes.string.isRequired,
 		text: PropTypes.string.isRequired,
 		aboveText: PropTypes.string,
-		belowText: PropTypes.string.isRequired,
+		description: PropTypes.string.isRequired,
 	})).isRequired,
 };
 

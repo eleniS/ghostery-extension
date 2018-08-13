@@ -8,58 +8,7 @@ exports[`app/hub/Views/SetupView component More Snapshot tests with react-test-r
     className="flex-child-grow"
   />
   <div>
-    <a
-      aria-current="page"
-      className="SteppedNavigation__exit flex-container align-middle active"
-      href="/"
-      onClick={[Function]}
-      style={Object {}}
-    >
-      <span
-        className="SteppedNavigation__exitText"
-      >
-        Exit Custom Setup
-      </span>
-      <span
-        className="SteppedNavigation__exitIcon"
-      />
-    </a>
-    <div
-      className="SteppedNavigation flex-container"
-    >
-      <div
-        className="flex-child-grow flex-container flex-dir-row-reverse"
-      >
-        <div
-          className="SteppedNavigation__buttonContainer"
-        />
-      </div>
-      <div
-        className="SteppedNavigation__circles flex-container align-center-middle"
-      >
-        <a
-          aria-current={null}
-          className={undefined}
-          href="/test/1"
-          onClick={[Function]}
-          style={undefined}
-        />
-        <a
-          aria-current={null}
-          className={undefined}
-          href="/test/2"
-          onClick={[Function]}
-          style={undefined}
-        />
-      </div>
-      <div
-        className="flex-child-grow"
-      >
-        <div
-          className="SteppedNavigation__buttonContainer"
-        />
-      </div>
-    </div>
+    Mock Setup Navigation
   </div>
 </div>
 `;
@@ -71,9 +20,9 @@ exports[`app/hub/Views/SetupView component More Snapshot tests with react-test-r
   <div
     className="flex-child-grow"
   />
-  <div
-    className="SteppedNavigation__isNull"
-  />
+  <div>
+    Mock Setup Navigation
+  </div>
 </div>
 `;
 
@@ -85,31 +34,8 @@ exports[`app/hub/Views/SetupView component Snapshot tests with react-test-render
     className="flex-child-grow"
   >
     <div>
-      <div
-        className="row align-center"
-      >
-        <div
-          className="columns small-12 large-10"
-        >
-          <div
-            className="SetupHeader flex-container align-center-middle"
-          >
-            <img
-              src="image for title test 1"
-            />
-            <div
-              className="SetupHeader__title"
-            >
-              <h3
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "title test 1",
-                  }
-                }
-              />
-            </div>
-          </div>
-        </div>
+      <div>
+        Mock Setup Header
       </div>
       <div>
         test component
@@ -117,64 +43,7 @@ exports[`app/hub/Views/SetupView component Snapshot tests with react-test-render
     </div>
   </div>
   <div>
-    <a
-      aria-current="page"
-      className="SteppedNavigation__exit flex-container align-middle active"
-      href="/"
-      onClick={[Function]}
-      style={Object {}}
-    >
-      <span
-        className="SteppedNavigation__exitText"
-      >
-        Exit Custom Setup
-      </span>
-      <span
-        className="SteppedNavigation__exitIcon"
-      />
-    </a>
-    <div
-      className="SteppedNavigation flex-container"
-    >
-      <div
-        className="flex-child-grow flex-container flex-dir-row-reverse"
-      >
-        <div
-          className="SteppedNavigation__buttonContainer"
-        />
-      </div>
-      <div
-        className="SteppedNavigation__circles flex-container align-center-middle"
-      >
-        <a
-          className="active"
-        />
-        <a
-          aria-current={null}
-          className={undefined}
-          href="/test/2"
-          onClick={[Function]}
-          style={undefined}
-        />
-      </div>
-      <div
-        className="flex-child-grow"
-      >
-        <div
-          className="SteppedNavigation__buttonContainer flex-container align-center-middle"
-        >
-          <a
-            aria-current={null}
-            className="button primary"
-            href="/test/2"
-            onClick={[Function]}
-            style={undefined}
-          >
-            Next
-          </a>
-        </div>
-      </div>
-    </div>
+    Mock Setup Navigation
   </div>
 </div>
 `;
@@ -187,31 +56,8 @@ exports[`app/hub/Views/SetupView component Snapshot tests with react-test-render
     className="flex-child-grow"
   >
     <div>
-      <div
-        className="row align-center"
-      >
-        <div
-          className="columns small-12 large-10"
-        >
-          <div
-            className="SetupHeader flex-container align-center-middle"
-          >
-            <img
-              src="image for title example 3"
-            />
-            <div
-              className="SetupHeader__title"
-            >
-              <h3
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "title example 3",
-                  }
-                }
-              />
-            </div>
-          </div>
-        </div>
+      <div>
+        Mock Setup Header
       </div>
       <div>
         test component
@@ -219,66 +65,7 @@ exports[`app/hub/Views/SetupView component Snapshot tests with react-test-render
     </div>
   </div>
   <div>
-    <div />
-    <div
-      className="SteppedNavigation flex-container"
-    >
-      <div
-        className="flex-child-grow flex-container flex-dir-row-reverse"
-      >
-        <div
-          className="SteppedNavigation__buttonContainer flex-container align-center-middle"
-        >
-          <a
-            aria-current={null}
-            className="button hollow primary"
-            href="/example/2"
-            onClick={[Function]}
-            style={undefined}
-          >
-            Previous
-          </a>
-        </div>
-      </div>
-      <div
-        className="SteppedNavigation__circles flex-container align-center-middle"
-      >
-        <a
-          aria-current={null}
-          className={undefined}
-          href="/example/1"
-          onClick={[Function]}
-          style={undefined}
-        />
-        <a
-          aria-current={null}
-          className={undefined}
-          href="/example/2"
-          onClick={[Function]}
-          style={undefined}
-        />
-        <a
-          className="active"
-        />
-      </div>
-      <div
-        className="flex-child-grow"
-      >
-        <div
-          className="SteppedNavigation__buttonContainer flex-container align-center-middle"
-        >
-          <a
-            aria-current="page"
-            className="button primary active"
-            href="/"
-            onClick={[Function]}
-            style={Object {}}
-          >
-            Done
-          </a>
-        </div>
-      </div>
-    </div>
+    Mock Setup Navigation
   </div>
 </div>
 `;

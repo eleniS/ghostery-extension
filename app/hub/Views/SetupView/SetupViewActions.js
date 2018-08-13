@@ -11,9 +11,31 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
+import { log, sendMessageInPromise } from '../../utils';
+
+export function getSettingsBackup() {
+	return function (dispatch) {
+		return sendMessageInPromise('GET_SETTINGS_BACKUP').then((data) => {
+			dispatch({
+				type: 'GET_SETTINGS_BACKUP',
+				data,
+			});
+		}).catch((err) => {
+			log('setupBlocking Action getSettingsBackup Error', err);
+		});
+	};
+}
+
 export function initSetupProps(data) {
 	return {
 		type: 'INIT_SETUP_PROPS',
+		data,
+	};
+}
+
+export function setSetupNavigation(data) {
+	return {
+		type: 'SET_SETUP_NAVIGATION',
 		data,
 	};
 }

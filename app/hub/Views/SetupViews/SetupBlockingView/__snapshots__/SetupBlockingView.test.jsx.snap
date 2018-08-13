@@ -41,14 +41,14 @@ exports[`app/hub/Views/SetupViews/SetupBlockingView component Snapshot tests wit
               Above text is Optional
             </div>
             <label
-              className="flex-container flex-dir-column SetupBlocking__choiceBox SetupBlocking--selected"
+              className="clickable flex-container flex-dir-column SetupBlocking__choiceBox SetupBlocking--selected"
               htmlFor="input-block-test"
             >
               <div
                 className="SetupBlocking__imageContainer flex-container align-center-middle"
               >
                 <img
-                  src="choice-test-image"
+                  src="/app/images/hub/setup/block-selected.svg"
                 />
               </div>
               <div
@@ -58,7 +58,7 @@ exports[`app/hub/Views/SetupViews/SetupBlockingView component Snapshot tests wit
               </div>
             </label>
             <div
-              className="SetupBlocking__belowText"
+              className="SetupBlocking__description"
             >
               This is your TEST below text
             </div>
@@ -78,11 +78,9 @@ exports[`app/hub/Views/SetupViews/SetupBlockingView component Snapshot tests wit
           <div>
             <div
               className="SetupBlocking__aboveText"
-            >
-              
-            </div>
+            />
             <label
-              className="flex-container flex-dir-column SetupBlocking__choiceBox"
+              className="clickable flex-container flex-dir-column SetupBlocking__choiceBox"
               htmlFor="input-block-example"
             >
               <div
@@ -99,7 +97,7 @@ exports[`app/hub/Views/SetupViews/SetupBlockingView component Snapshot tests wit
               </div>
             </label>
             <div
-              className="SetupBlocking__belowText"
+              className="SetupBlocking__description"
             >
               This is your EXAMPLE below text
             </div>

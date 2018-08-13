@@ -11,16 +11,36 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import * as utils from '../../../utils';
 import * as SetupBlockingViewActions from './SetupBlockingViewActions';
 
-describe('app/hub/Views/SetupView/SetupBlockingView actions', () => {
+const middlewares = [thunk];
+const mockStore = configureStore(middlewares);
+
+const testData = { test: true };
+utils.sendMessageInPromise = jest.fn((name, message) => new Promise((resolve, reject) => {
+	switch (name) {
+		case 'SET_BLOCKING_POLICY': {
+			resolve(message);
+			break;
+		}
+		default: resolve(message);
+	}
+}));
+
+describe('app/hub/Views/SetupViews/SetupBlockingView actions', () => {
 	test('setBlockingPolicy action should return correctly', () => {
-		const testData = {
-			test: 'test-data',
-		};
-		expect(SetupBlockingViewActions.setBlockingPolicy(testData)).toEqual({
-			type: 'SET_BLOCKING_POLICY',
-			data: testData,
+		const initialState = {};
+		const store = mockStore(initialState);
+
+		const data = testData;
+		const expectedPayload = { data, type: 'SET_BLOCKING_POLICY' };
+
+		return store.dispatch(SetupBlockingViewActions.setBlockingPolicy(data)).then(() => {
+			const actions = store.getActions();
+			expect(actions).toEqual([expectedPayload]);
 		});
 	});
 });

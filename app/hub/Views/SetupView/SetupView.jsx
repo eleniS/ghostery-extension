@@ -16,7 +16,7 @@ import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 
 // Components
-import SteppedNavigation from '../../SteppedNavigation';
+import SetupNavigation from '../SetupViews/SetupNavigation';
 import SetupHeader from '../SetupViews/SetupHeader';
 
 /**
@@ -34,25 +34,19 @@ const SetupView = props => (
 					render={() => (
 						<div>
 							<SetupHeader {...step.headerProps} />
-							<step.bodyComponent />
+							<step.bodyComponent index={step.index} />
 						</div>
 					)}
 				/>
 			))}
 		</div>
 
-		<SteppedNavigation
-			steps={props.steps}
-			activeIndex={props.activeIndex}
-			hrefDone="/"
-			exitText="Exit Custom Setup"
-		/>
+		<SetupNavigation totalSteps={props.steps.length} />
 	</div>
 );
 
 // PropTypes ensure we pass required props of the correct type
 SetupView.propTypes = {
-	activeIndex: PropTypes.number.isRequired,
 	steps: PropTypes.arrayOf(PropTypes.shape({
 		index: PropTypes.number.isRequired,
 		path: PropTypes.string.isRequired,

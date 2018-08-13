@@ -26,7 +26,6 @@ describe('app/hub/Views/SetupViews/SetupAntiSuiteView component', () => {
 						name: 'Test Feature One',
 						enabled: true,
 						toggle: () => {},
-						icon: '',
 						description: 'The first test feature',
 					},
 					{
@@ -34,7 +33,6 @@ describe('app/hub/Views/SetupViews/SetupAntiSuiteView component', () => {
 						name: 'Test Feature Two',
 						enabled: false,
 						toggle: () => {},
-						icon: '',
 						description: 'The second test feature',
 					},
 				],

@@ -39,7 +39,8 @@ describe('app/hub/Views/SetupViews/SetupHumanWebView component', () => {
 			};
 
 			const component = shallow(<SetupHumanWebView {...initialState} />);
-			expect(component.find('.setup-human-web-view').length).toBe(1);
+			expect(component.find('.SetupHumanWeb').length).toBe(1);
+			expect(component.find('.SetupHumanWeb__label').length).toBe(1);
 		});
 	});
 });

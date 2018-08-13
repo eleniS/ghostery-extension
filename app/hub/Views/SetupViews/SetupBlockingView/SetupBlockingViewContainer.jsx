@@ -12,6 +12,7 @@
  */
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import SetupBlockingView from './SetupBlockingView';
 
 /**
@@ -31,8 +32,22 @@ class SetupBlockingViewContainer extends Component {
 	 * Lifecycle Event
 	 */
 	componentWillMount() {
-		const title = 'Ghostery Hub - Setup Blocking';
+		const title = t('hub_setup_page_title_blocking');
 		window.document.title = title;
+
+		const { index, setup } = this.props;
+		this.props.actions.setSetupNavigation({
+			activeIndex: index,
+			hrefPrev: false,
+			hrefNext: `/setup/${index + 1}`,
+			hrefDone: '/',
+			textPrev: false,
+			textNext: t('hub_setup_nav_next'),
+			textDone: t('hub_setup_exit_flow'),
+		});
+
+		const { blockingPolicy } = setup;
+		this.props.actions.setBlockingPolicy({ blockingPolicy });
 	}
 
 	/**
@@ -52,34 +67,43 @@ class SetupBlockingViewContainer extends Component {
 		const { blockingPolicy } = this.props.setup;
 		const choices = [
 			{
-				name: 'nothing',
+				name: 'BLOCKING_POLICY_RECOMMENDED',
+				image: '/app/images/hub/setup/block-recommended.svg',
+				text: t('hub_setup_blocking_text_recommended'),
+				aboveText: t('hub_setup_blocking_above_recommended'),
+				description: t('hub_setup_blocking_description_recommended'),
+			},
+			{
+				name: 'BLOCKING_POLICY_NOTHING',
 				image: '/app/images/hub/setup/block-none.svg',
-				text: 'Block Nothing',
-				belowText: 'No trackers blocked.',
+				text: t('hub_setup_blocking_text_nothing'),
+				description: t('hub_setup_blocking_description_nothing'),
 			},
 			{
-				name: 'recommended',
-				image: '/app/images/hub/setup/block-ads.svg',
-				text: 'Ghostery Default Blocking',
-				aboveText: 'Recommended',
-				belowText: 'Advertising, Site Analytics, and Adult Advertising trackers blocked.',
-			},
-			{
-				name: 'everything',
+				name: 'BLOCKING_POLICY_EVERYTHING',
 				image: '/app/images/hub/setup/block-all.svg',
-				text: 'Block Everyting',
-				belowText: 'All trackers blocked',
+				text: t('hub_setup_blocking_text_everything'),
+				description: t('hub_setup_blocking_description_everything'),
 			},
 			{
-				name: 'custom',
+				name: 'BLOCKING_POLICY_CUSTOM',
 				image: '/app/images/hub/setup/block-custom.svg',
-				text: 'Choose from List',
-				belowText: 'Choose which trackers you\'d like to block',
+				text: t('hub_setup_blocking_text_custom'),
+				description: t('hub_setup_blocking_description_custom'),
 			},
 		];
 
 		return <SetupBlockingView blockingPolicy={blockingPolicy} choices={choices} handleSelection={this._handleChange} />;
 	}
 }
+
+// PropTypes ensure we pass required props of the correct type
+SetupBlockingViewContainer.propTypes = {
+	index: PropTypes.number.isRequired,
+	actions: PropTypes.shape({
+		setSetupNavigation: PropTypes.func.isRequired,
+		setBlockingPolicy: PropTypes.func.isRequired,
+	}).isRequired,
+};
 
 export default SetupBlockingViewContainer;

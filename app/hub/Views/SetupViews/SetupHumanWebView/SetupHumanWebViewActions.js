@@ -11,9 +11,17 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
-export function setHumanWeb(data) {
-	return {
-		type: 'SET_HUMAN_WEB',
-		data,
+import { log, sendMessageInPromise } from '../../../utils';
+
+export function setHumanWeb(actionData) {
+	return function (dispatch) {
+		return sendMessageInPromise('SET_HUMAN_WEB', actionData).then((data) => {
+			dispatch({
+				type: 'SET_HUMAN_WEB',
+				data,
+			});
+		}).catch((err) => {
+			log('setupBlocking Action setHumanWeb Error', err);
+		});
 	};
 }

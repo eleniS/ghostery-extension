@@ -11,30 +11,56 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
-export function setAntiTracking(data) {
-	return {
-		type: 'SET_ANTI_TRACKING',
-		data,
+import { log, sendMessageInPromise } from '../../../utils';
+
+export function setAntiTracking(actionData) {
+	return function (dispatch) {
+		return sendMessageInPromise('SET_ANTI_TRACKING', actionData).then((data) => {
+			dispatch({
+				type: 'SET_ANTI_TRACKING',
+				data,
+			});
+		}).catch((err) => {
+			log('setupBlocking Action setAntiTracking Error', err);
+		});
 	};
 }
 
-export function setAdBlock(data) {
-	return {
-		type: 'SET_AD_BLOCK',
-		data,
+export function setAdBlock(actionData) {
+	return function (dispatch) {
+		return sendMessageInPromise('SET_AD_BLOCK', actionData).then((data) => {
+			dispatch({
+				type: 'SET_AD_BLOCK',
+				data,
+			});
+		}).catch((err) => {
+			log('setupBlocking Action setAdBlock Error', err);
+		});
 	};
 }
 
-export function setSmartBlocking(data) {
-	return {
-		type: 'SET_SMART_BLOCKING',
-		data,
+export function setSmartBlocking(actionData) {
+	return function (dispatch) {
+		return sendMessageInPromise('SET_SMART_BLOCKING', actionData).then((data) => {
+			dispatch({
+				type: 'SET_SMART_BLOCKING',
+				data,
+			});
+		}).catch((err) => {
+			log('setupBlocking Action setSmartBlocking Error', err);
+		});
 	};
 }
 
-export function setGhosteryRewards(data) {
-	return {
-		type: 'SET_GHOSTERY_REWARDS',
-		data,
+export function setGhosteryRewards(actionData) {
+	return function (dispatch) {
+		return sendMessageInPromise('SET_GHOSTERY_REWARDS', actionData).then((data) => {
+			dispatch({
+				type: 'SET_GHOSTERY_REWARDS',
+				data,
+			});
+		}).catch((err) => {
+			log('setupBlocking Action setGhosteryRewards Error', err);
+		});
 	};
 }
