@@ -11,8 +11,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { SteppedNavigation } from '../../../../shared-components';
 
 /**
@@ -20,24 +19,19 @@ import { SteppedNavigation } from '../../../../shared-components';
  * @extends Component
  * @memberof HubComponents
  */
-class TutorialNavigationContainer extends Component {
-	render () {
-		const childProps = {
-			totalSteps: 6,
-			activeIndex: 1,
-			hrefPrev: false,
-			hrefNext: '/tutorial/2',
-			hrefDone: '/',
-			textPrev: false,
-			textNext: 'Next',
-			textDone: 'Exit Tutorial',
-		};
-		return <SteppedNavigation {...childProps} />;
-	}
-}
+const TutorialNavigationContainer = () => {
+	const childProps = {
+		totalSteps: 6,
+		activeIndex: 1,
+		hrefPrev: false,
+		hrefNext: '/tutorial/2',
+		hrefDone: '/',
+		textPrev: false,
+		textNext: 'Next',
+		textDone: 'Exit Tutorial',
+	};
 
-// PropTypes ensure we pass required props of the correct type
-TutorialNavigationContainer.propTypes = {
+	return <SteppedNavigation {...childProps} />;
 };
 
 export default TutorialNavigationContainer;

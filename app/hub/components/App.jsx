@@ -29,16 +29,34 @@ class App extends Component {
 			menu: {
 				items: [
 					{ location: 'top', text: 'Ghostery' },
-					{ location: 'list', type: 'link', href: '/', icon: 'home', text: 'Home' },
-					{ location: 'list', type: 'link', href: '/setup/1', icon: 'home', text: 'Customize Setup' },
-					{ location: 'list', type: 'link', href: '/tutorial/1', icon: 'home', text: 'Visit Tutorial' },
-					{ location: 'list', type: 'link', href: '/supporter', icon: 'home', text: 'Become a Ghostery Supporter' },
-					{ location: 'list', type: 'link', href: '/rewards', icon: 'home', text: 'Check out Ghostery Rewards' },
-					{ location: 'list', type: 'link', href: '/products', icon: 'home', text: 'Try other Ghostery Products' },
-					{ location: 'bottom', type: 'modal', icon: 'share', text: 'Share with Friends' },
+					{
+						location: 'list', type: 'link', href: '/', icon: 'home', text: 'Home'
+					},
+					{
+						location: 'list', type: 'link', href: '/setup/1', icon: 'home', text: 'Customize Setup'
+					},
+					{
+						location: 'list', type: 'link', href: '/tutorial/1', icon: 'home', text: 'Visit Tutorial'
+					},
+					{
+						location: 'list', type: 'link', href: '/supporter', icon: 'home', text: 'Become a Ghostery Supporter'
+					},
+					{
+						location: 'list', type: 'link', href: '/rewards', icon: 'home', text: 'Check out Ghostery Rewards'
+					},
+					{
+						location: 'list', type: 'link', href: '/products', icon: 'home', text: 'Try other Ghostery Products'
+					},
+					{
+						location: 'bottom', type: 'modal', icon: 'share', text: 'Share with Friends'
+					},
 					{ location: 'bottom', type: 'separator' },
-					{ location: 'bottom', type: 'link', href: '/create-account', text: 'Create Account' },
-					{ location: 'bottom', type: 'link', href: '/log-in', text: 'Log In' },
+					{
+						location: 'bottom', type: 'link', href: '/create-account', text: 'Create Account'
+					},
+					{
+						location: 'bottom', type: 'link', href: '/log-in', text: 'Log In'
+					},
 				],
 			},
 		};
