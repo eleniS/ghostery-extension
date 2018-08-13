@@ -21,20 +21,18 @@ import { setSetupNavigation } from '../../SetupView/SetupViewActions';
 /**
  * Map redux store state properties to the component's own properties.
  * @param  {Object} state    entire Redux store's state
- * @param  {Object} ownProps props passed to the connected component
  * @return {function}        this function returns a plain object, which will be merged into the component's props
  * @memberof HubContainers
  */
-const mapStateToProps = (state, ownProps) => Object.assign({}, state.setup);
+const mapStateToProps = state => Object.assign({}, state.setup);
 
 /**
  * Bind the component's action creators using Redux's bindActionCreators.
  * @param  {function} dispatch redux store method which dispatches actions
- * @param  {Object} ownProps   the component's own props
  * @return {function}          to be used as an argument in redux connect call
  * @memberof SetupContainers
  */
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = dispatch => ({
 	actions: bindActionCreators(Object.assign(SetupBlockingViewActions, { setSetupNavigation }), dispatch),
 });
 

@@ -14,8 +14,6 @@
 import { combineReducers } from 'redux';
 import { reducer as setup } from '../Views/SetupView';
 
-const initialState = {};
-
 const Reducers = combineReducers({
 	setup,
 });

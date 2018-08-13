@@ -52,9 +52,8 @@ class SetupHumanWebViewContainer extends Component {
 
 	/**
 	* Function to handle toggling Human Web Opt-In
-	* @param  {Object} event the click event
 	*/
-	_handleToggle(event) {
+	_handleToggle() {
 		const enable_human_web = !this.props.setup.enable_human_web;
 		this.props.actions.setHumanWeb({ enable_human_web });
 	}

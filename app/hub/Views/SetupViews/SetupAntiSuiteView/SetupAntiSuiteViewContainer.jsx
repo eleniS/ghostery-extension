@@ -137,12 +137,6 @@ class SetupAntiSuiteViewContainer extends Component {
 				description: t('hub_setup_ghosteryrewards_description_rewards'),
 			},
 		];
-		const componentProps = {
-			enable_anti_tracking,
-			enable_ad_block,
-			enable_smart_blocking,
-			enable_ghostery_rewards,
-		};
 
 		return <SetupAntiSuiteView features={features} />;
 	}

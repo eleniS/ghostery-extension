@@ -587,25 +587,6 @@ function handleGhosteryHub(name, message, tab_id, callback) {
 }
 
 /**
- * Handle messages sent from dist/settings_redirect.js script
- * of the settings_redirect.html local page. Used on @EDGE and Chrome.
- * @memberOf Background
- *
- * @param  {string} 	name 		message name
- * @param  {Object} 	message 	message data
- * @param  {number} 		tab_id 		tab id
- * @param  {function} 	callback 	function to call (at most once) when you have a response
- * @return {boolean}
- */
-function handleSettingsRedirect(name, message, tab_id, callback) {
-	if (name === 'getSettingsUrl') {
-		sendMessage(tab_id, 'gotSettingsUrl', `https://extension.${GHOSTERY_DOMAIN}.com/${conf.language}/settings#general`);
-	}
-
-	return false;
-}
-
-/**
  * Handle messages sent from dist/purplebox.js content script.
  * @memberOf Background
  *

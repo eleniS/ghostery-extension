@@ -11,9 +11,8 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import ClassNames from 'classnames';
 import { ToggleCheckbox } from '../../../../shared-components';
 
 /**

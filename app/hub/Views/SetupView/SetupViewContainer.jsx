@@ -11,7 +11,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import SetupView from './SetupView';
 
@@ -52,7 +52,6 @@ class SetupViewContainer extends React.Component {
 	 * @return {JSX} JSX for rendering the Setup View of the Hub app
 	 */
 	render() {
-		const { activeIndex } = this.props.setup;
 		const steps = [
 			{
 				index: 1,
