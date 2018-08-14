@@ -12,8 +12,11 @@
  */
 
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import SetupView from './SetupView';
+import SetupModal from '../SetupViews/SetupModal';
+import ToggleCheckbox from '../../../shared-components/ToggleCheckbox';
 
 // Component Views
 import SetupBlockingView from '../SetupViews/SetupBlockingView';
@@ -27,6 +30,19 @@ import SetupDoneView from '../SetupViews/SetupDoneView';
  * @memberof HubContainers
  */
 class SetupViewContainer extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			openModalEnter: false,
+			checkAskAgain: false,
+		};
+
+		// Event Bindings
+		this._toggleModal = this._toggleModal.bind(this);
+		this._toggleCheckbox = this._toggleCheckbox.bind(this);
+		this._resetSettings = this._resetSettings.bind(this);
+	}
+
 	/**
 	 * Lifecycle Event
 	 */
@@ -48,10 +64,82 @@ class SetupViewContainer extends React.Component {
 	}
 
 	/**
+	* Function to toggle the Modal
+	* This was duplicated from SetupNavigationContainer. ToDo: Consolidate
+	*/
+	_toggleModal() {
+		const { openModalEnter } = this.state;
+		this.setState({
+			openModalEnter: !openModalEnter,
+		});
+	}
+
+	/**
+	* Function to toggle the Ask Again Checkbox
+	*/
+	_toggleCheckbox() {
+		const { checkAskAgain } = this.state;
+		this.setState({
+			checkAskAgain: !checkAskAgain,
+		});
+	}
+
+	/**
+	* Function to reset settings
+	* This was duplicated from SetupNavigationContainer. ToDo: Consolidate
+	*/
+	_resetSettings() {
+		const { actions, setup } = this.props;
+		const {
+			selected_app_ids,
+			enable_anti_tracking,
+			enable_ad_block,
+			enable_smart_blocking,
+			enable_ghostery_rewards,
+			enable_human_web,
+		} = setup.settings_backup;
+
+		actions.setBlockingPolicy({ blockingPolicy: 'BLOCKING_POLICY_CUSTOM', selected_app_ids });
+		actions.setAntiTracking({ enable_anti_tracking });
+		actions.setAdBlock({ enable_ad_block });
+		actions.setSmartBlocking({ enable_smart_blocking });
+		actions.setGhosteryRewards({ enable_ghostery_rewards });
+		actions.setHumanWeb({ enable_human_web });
+	}
+
+	/**
+	 * Helper render function for rendering the Modal's Children
+	 * @return {JSX} JSX of the Setup Modal's Children
+	 */
+	_renderModalChildren() {
+		const { checkAskAgain } = this.state;
+
+		return (
+			<div className="SetupModal__buttonContainer SetupModal--short full-width">
+				<div className="full-width flex-container align-justify">
+					<NavLink to="/" onClick={this._resetSettings} className="button success hollow">
+						{t('hub_setup_modal_button_no')}
+					</NavLink>
+					<div className="button success hollow" onClick={this._toggleModal}>
+						{t('hub_setup_modal_button_yes')}
+					</div>
+				</div>
+				<div className="flex-container align-center-middle">
+					<ToggleCheckbox checked={checkAskAgain} onChange={this._toggleCheckbox} />
+					<div className="SetupModal__checkboxText" onClick={this._toggleCheckbox}>
+						{t('hub_setup_modal_button_ask_again')}
+					</div>
+				</div>
+			</div>
+		);
+	}
+
+	/**
 	 * React's required render function. Returns JSX
 	 * @return {JSX} JSX for rendering the Setup View of the Hub app
 	 */
 	render() {
+		const { openModalEnter } = this.state;
 		const steps = [
 			{
 				index: 1,
@@ -91,7 +179,14 @@ class SetupViewContainer extends React.Component {
 			},
 		];
 
-		return <SetupView steps={steps} />;
+		return (
+			<div className="full-height">
+				<SetupModal show={openModalEnter} text={t('hub_setup_enter_modal_text')} toggle={this._toggleModal}>
+					{this._renderModalChildren()}
+				</SetupModal>
+				<SetupView steps={steps} />;
+			</div>
+		);
 	}
 }
 

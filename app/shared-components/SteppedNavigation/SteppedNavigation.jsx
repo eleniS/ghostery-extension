@@ -45,12 +45,12 @@ const SteppedNavigation = (props) => {
 		<div className="row align-center">
 			<div className="columns small-12">
 				{hrefDone && (
-					<NavLink to={hrefDone} onClick={clickExit} className="SteppedNavigation__exit flex-container align-middle">
+					<div onClick={clickExit} className="SteppedNavigation__exit flex-container align-middle">
 						{textDone && (
 							<span className="SteppedNavigation__exitText">{textDone}</span>
 						)}
 						<span className="SteppedNavigation__exitIcon" />
-					</NavLink>
+					</div>
 				)}
 				<div className="SteppedNavigation flex-container">
 					<div className="flex-child-grow flex-container flex-dir-row-reverse">

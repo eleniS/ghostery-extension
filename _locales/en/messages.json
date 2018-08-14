@@ -1647,6 +1647,21 @@
 	"hub_setup_nav_done": {
 		"message": "Done"
 	},
+	"hub_setup_enter_modal_text": {
+		"message": "Customizing setup will override your previous Ghostery blocking settings. Do you want to continue?"
+	},
+	"hub_setup_exit_modal_text": {
+		"message": "You have not completed Custom Setup. Selections will not be saved. Do you want to exit?"
+	},
+	"hub_setup_modal_button_no": {
+		"message": "No"
+	},
+	"hub_setup_modal_button_yes": {
+		"message": "Yes"
+	},
+	"hub_setup_modal_button_ask_again": {
+		"message": "Do not ask me again"
+	},
 
 	"hub_setup_blocking_above_recommended": {
 		"message": "Recommended"

@@ -2,180 +2,204 @@
 
 exports[`app/hub/Views/SetupView container Snapshot tests with react-test-renderer setup view container is rendered correctly on the Anti-Suite step 1`] = `
 <div
-  className="full-height flex-container flex-dir-column"
+  className="full-height"
 >
+  <div />
   <div
-    className="flex-child-grow"
+    className="full-height flex-container flex-dir-column"
   >
-    <div>
-      <div
-        className="row align-center"
-      >
+    <div
+      className="flex-child-grow"
+    >
+      <div>
         <div
-          className="columns small-12 large-10"
+          className="row align-center"
         >
           <div
-            className="SetupHeader flex-container align-center-middle"
+            className="columns small-12 large-10"
           >
-            <img
-              src="/app/images/hub/setup/ghosty-shield-stop-lightbulb.svg"
-            />
             <div
-              className="SetupHeader__title"
+              className="SetupHeader flex-container align-center-middle"
             >
-              <h3
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "hub_setup_header_title_antisuite",
-                  }
-                }
+              <img
+                src="/app/images/hub/setup/ghosty-shield-stop-lightbulb.svg"
               />
+              <div
+                className="SetupHeader__title"
+              >
+                <h3
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "hub_setup_header_title_antisuite",
+                    }
+                  }
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div>
-        Mock Setup Anti-Suite View
+        <div>
+          Mock Setup Anti-Suite View
+        </div>
       </div>
     </div>
+    <div>
+      Mock Setup Navigation
+    </div>
   </div>
-  <div>
-    Mock Setup Navigation
-  </div>
+  ;
 </div>
 `;
 
 exports[`app/hub/Views/SetupView container Snapshot tests with react-test-renderer setup view container is rendered correctly on the Blocking step 1`] = `
 <div
-  className="full-height flex-container flex-dir-column"
+  className="full-height"
 >
+  <div />
   <div
-    className="flex-child-grow"
+    className="full-height flex-container flex-dir-column"
   >
-    <div>
-      <div
-        className="row align-center"
-      >
+    <div
+      className="flex-child-grow"
+    >
+      <div>
         <div
-          className="columns small-12 large-10"
+          className="row align-center"
         >
           <div
-            className="SetupHeader flex-container align-center-middle"
+            className="columns small-12 large-10"
           >
-            <img
-              src="/app/images/hub/setup/ghosty-block-all.svg"
-            />
             <div
-              className="SetupHeader__title"
+              className="SetupHeader flex-container align-center-middle"
             >
-              <h3
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "hub_setup_header_title_blocking",
-                  }
-                }
+              <img
+                src="/app/images/hub/setup/ghosty-block-all.svg"
               />
+              <div
+                className="SetupHeader__title"
+              >
+                <h3
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "hub_setup_header_title_blocking",
+                    }
+                  }
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div>
-        Mock Setup Blocking View
+        <div>
+          Mock Setup Blocking View
+        </div>
       </div>
     </div>
+    <div>
+      Mock Setup Navigation
+    </div>
   </div>
-  <div>
-    Mock Setup Navigation
-  </div>
+  ;
 </div>
 `;
 
 exports[`app/hub/Views/SetupView container Snapshot tests with react-test-renderer setup view container is rendered correctly on the Done step 1`] = `
 <div
-  className="full-height flex-container flex-dir-column"
+  className="full-height"
 >
+  <div />
   <div
-    className="flex-child-grow"
+    className="full-height flex-container flex-dir-column"
   >
-    <div>
-      <div
-        className="row align-center"
-      >
+    <div
+      className="flex-child-grow"
+    >
+      <div>
         <div
-          className="columns small-12 large-10"
+          className="row align-center"
         >
           <div
-            className="SetupHeader flex-container align-center-middle"
+            className="columns small-12 large-10"
           >
-            <img
-              src="/app/images/hub/setup/ghosty-check-wrench.svg"
-            />
             <div
-              className="SetupHeader__title"
+              className="SetupHeader flex-container align-center-middle"
             >
-              <h3
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "hub_setup_header_title_done",
-                  }
-                }
+              <img
+                src="/app/images/hub/setup/ghosty-check-wrench.svg"
               />
+              <div
+                className="SetupHeader__title"
+              >
+                <h3
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "hub_setup_header_title_done",
+                    }
+                  }
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div>
-        Mock Setup Done View
+        <div>
+          Mock Setup Done View
+        </div>
       </div>
     </div>
+    <div>
+      Mock Setup Navigation
+    </div>
   </div>
-  <div>
-    Mock Setup Navigation
-  </div>
+  ;
 </div>
 `;
 
 exports[`app/hub/Views/SetupView container Snapshot tests with react-test-renderer setup view container is rendered correctly on the Human Web step 1`] = `
 <div
-  className="full-height flex-container flex-dir-column"
+  className="full-height"
 >
+  <div />
   <div
-    className="flex-child-grow"
+    className="full-height flex-container flex-dir-column"
   >
-    <div>
-      <div
-        className="row align-center"
-      >
+    <div
+      className="flex-child-grow"
+    >
+      <div>
         <div
-          className="columns small-12 large-10"
+          className="row align-center"
         >
           <div
-            className="SetupHeader flex-container align-center-middle"
+            className="columns small-12 large-10"
           >
-            <img
-              src="/app/images/hub/setup/ghosty-human-web.svg"
-            />
             <div
-              className="SetupHeader__title"
+              className="SetupHeader flex-container align-center-middle"
             >
-              <h3
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "hub_setup_header_title_humanweb",
-                  }
-                }
+              <img
+                src="/app/images/hub/setup/ghosty-human-web.svg"
               />
+              <div
+                className="SetupHeader__title"
+              >
+                <h3
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "hub_setup_header_title_humanweb",
+                    }
+                  }
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div>
-        Mock Setup Human Web View
+        <div>
+          Mock Setup Human Web View
+        </div>
       </div>
     </div>
+    <div>
+      Mock Setup Navigation
+    </div>
   </div>
-  <div>
-    Mock Setup Navigation
-  </div>
+  ;
 </div>
 `;
