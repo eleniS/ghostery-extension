@@ -15,8 +15,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import SetupView from './SetupView';
-import SetupModal from '../SetupViews/SetupModal';
-import ToggleCheckbox from '../../../shared-components/ToggleCheckbox';
+import { Modal, ToggleCheckbox } from '../../../shared-components';
 
 // Component Views
 import SetupBlockingView from '../SetupViews/SetupBlockingView';
@@ -33,14 +32,13 @@ class SetupViewContainer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			openModalEnter: false,
+			showModal: true,
 			checkAskAgain: false,
 		};
 
 		// Event Bindings
 		this._toggleModal = this._toggleModal.bind(this);
 		this._toggleCheckbox = this._toggleCheckbox.bind(this);
-		this._resetSettings = this._resetSettings.bind(this);
 	}
 
 	/**
@@ -52,25 +50,24 @@ class SetupViewContainer extends React.Component {
 		window.document.title = title;
 
 		this.props.actions.initSetupProps(this.props.setup);
-		this.props.actions.getSettingsBackup().then(() => {
-			// Set the default props for the Setup Flow
-			this.props.actions.setBlockingPolicy({ blockingPolicy: 'BLOCKING_POLICY_RECOMMENDED' });
-			this.props.actions.setAntiTracking({ enable_anti_tracking: true });
-			this.props.actions.setAdBlock({ enable_ad_block: true });
-			this.props.actions.setSmartBlocking({ enable_smart_blocking: true });
-			this.props.actions.setGhosteryRewards({ enable_ghostery_rewards: true });
-			this.props.actions.setHumanWeb({ enable_human_web: true });
-		});
+		// this.props.actions.getSettingsBackup().then(() => {
+		// 	// Set the default props for the Setup Flow
+		// 	this.props.actions.setBlockingPolicy({ blockingPolicy: 'BLOCKING_POLICY_RECOMMENDED' });
+		// 	this.props.actions.setAntiTracking({ enable_anti_tracking: true });
+		// 	this.props.actions.setAdBlock({ enable_ad_block: true });
+		// 	this.props.actions.setSmartBlocking({ enable_smart_blocking: true });
+		// 	this.props.actions.setGhosteryRewards({ enable_ghostery_rewards: true });
+		// 	this.props.actions.setHumanWeb({ enable_human_web: true });
+		// });
 	}
 
 	/**
 	* Function to toggle the Modal
-	* This was duplicated from SetupNavigationContainer. ToDo: Consolidate
 	*/
 	_toggleModal() {
-		const { openModalEnter } = this.state;
+		const { showModal } = this.state;
 		this.setState({
-			openModalEnter: !openModalEnter,
+			showModal: !showModal,
 		});
 	}
 
@@ -85,29 +82,6 @@ class SetupViewContainer extends React.Component {
 	}
 
 	/**
-	* Function to reset settings
-	* This was duplicated from SetupNavigationContainer. ToDo: Consolidate
-	*/
-	_resetSettings() {
-		const { actions, setup } = this.props;
-		const {
-			selected_app_ids,
-			enable_anti_tracking,
-			enable_ad_block,
-			enable_smart_blocking,
-			enable_ghostery_rewards,
-			enable_human_web,
-		} = setup.settings_backup;
-
-		actions.setBlockingPolicy({ blockingPolicy: 'BLOCKING_POLICY_CUSTOM', selected_app_ids });
-		actions.setAntiTracking({ enable_anti_tracking });
-		actions.setAdBlock({ enable_ad_block });
-		actions.setSmartBlocking({ enable_smart_blocking });
-		actions.setGhosteryRewards({ enable_ghostery_rewards });
-		actions.setHumanWeb({ enable_human_web });
-	}
-
-	/**
 	 * Helper render function for rendering the Modal's Children
 	 * @return {JSX} JSX of the Setup Modal's Children
 	 */
@@ -115,19 +89,25 @@ class SetupViewContainer extends React.Component {
 		const { checkAskAgain } = this.state;
 
 		return (
-			<div className="SetupModal__buttonContainer SetupModal--short full-width">
-				<div className="full-width flex-container align-justify">
-					<NavLink to="/" onClick={this._resetSettings} className="button success hollow">
-						{t('hub_setup_modal_button_no')}
-					</NavLink>
-					<div className="button success hollow" onClick={this._toggleModal}>
-						{t('hub_setup_modal_button_yes')}
-					</div>
+			<div className="SetupModal__content flex-container flex-dir-column align-middle">
+				<div className="SetupModal__image" />
+				<div className="SetupModal__text flex-child-grow">
+					{t('hub_setup_enter_modal_text')}
 				</div>
-				<div className="flex-container align-center-middle">
-					<ToggleCheckbox checked={checkAskAgain} onChange={this._toggleCheckbox} />
-					<div className="SetupModal__checkboxText" onClick={this._toggleCheckbox}>
-						{t('hub_setup_modal_button_ask_again')}
+				<div className="SetupModal__buttonContainer full-width">
+					<div className="full-width flex-container align-justify">
+						<NavLink to="/" className="button success hollow">
+							{t('hub_setup_modal_button_no')}
+						</NavLink>
+						<div className="button success hollow" onClick={this._toggleModal}>
+							{t('hub_setup_modal_button_yes')}
+						</div>
+					</div>
+					<div className="flex-container align-center-middle">
+						<ToggleCheckbox checked={checkAskAgain} onChange={this._toggleCheckbox} />
+						<div className="SetupModal__checkboxText" onClick={this._toggleCheckbox}>
+							{t('hub_setup_modal_button_ask_again')}
+						</div>
 					</div>
 				</div>
 			</div>
@@ -139,7 +119,7 @@ class SetupViewContainer extends React.Component {
 	 * @return {JSX} JSX for rendering the Setup View of the Hub app
 	 */
 	render() {
-		const { openModalEnter } = this.state;
+		const { showModal } = this.state;
 		const steps = [
 			{
 				index: 1,
@@ -181,10 +161,10 @@ class SetupViewContainer extends React.Component {
 
 		return (
 			<div className="full-height">
-				<SetupModal show={openModalEnter} text={t('hub_setup_enter_modal_text')} toggle={this._toggleModal}>
+				<Modal show={showModal} >
 					{this._renderModalChildren()}
-				</SetupModal>
-				<SetupView steps={steps} />;
+				</Modal>
+				<SetupView steps={steps} />
 			</div>
 		);
 	}
@@ -221,14 +201,6 @@ SetupViewContainer.propTypes = {
 				PropTypes.string,
 			]),
 		}),
-		settings_backup: PropTypes.shape({
-			selected_app_ids: PropTypes.objectOf(PropTypes.number),
-			enable_anti_tracking: PropTypes.bool,
-			enable_ad_block: PropTypes.bool,
-			enable_smart_blocking: PropTypes.bool,
-			enable_ghostery_rewards: PropTypes.bool,
-			enable_human_web: PropTypes.bool,
-		}),
 		blockingPolicy: PropTypes.string,
 		enable_anti_tracking: PropTypes.bool,
 		enable_ad_block: PropTypes.bool,
@@ -259,14 +231,6 @@ SetupViewContainer.defaultProps = {
 			textPrev: false,
 			textNext: false,
 			textDone: false,
-		},
-		settings_backup: {
-			selected_app_ids: {},
-			enable_anti_tracking: true,
-			enable_ad_block: true,
-			enable_smart_blocking: true,
-			enable_ghostery_rewards: true,
-			enable_human_web: true,
 		},
 		blockingPolicy: 'BLOCKING_POLICY_RECOMMENDED',
 		enable_anti_tracking: true,

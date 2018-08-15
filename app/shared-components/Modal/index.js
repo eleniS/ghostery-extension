@@ -1,5 +1,5 @@
 /**
- * Setup View Action creators
+ * Point of entry index.js file for Modal Component
  *
  * Ghostery Browser Extension
  * https://www.ghostery.com/
@@ -11,16 +11,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
-export function initSetupProps(data) {
-	return {
-		type: 'INIT_SETUP_PROPS',
-		data,
-	};
-}
+import Modal from './Modal';
 
-export function setSetupNavigation(data) {
-	return {
-		type: 'SET_SETUP_NAVIGATION',
-		data,
-	};
-}
+export default Modal;

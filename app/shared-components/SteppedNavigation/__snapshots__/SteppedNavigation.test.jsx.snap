@@ -81,14 +81,17 @@ exports[`app/shared-components/SteppedNavigation More Snapshot tests with react-
   <div
     className="columns small-12"
   >
-    <div
-      className="SteppedNavigation__exit flex-container align-middle"
-      onClick={undefined}
+    <a
+      aria-current="page"
+      className="SteppedNavigation__exit flex-container align-middle active"
+      href="/"
+      onClick={[Function]}
+      style={Object {}}
     >
       <span
         className="SteppedNavigation__exitIcon"
       />
-    </div>
+    </a>
     <div
       className="SteppedNavigation flex-container"
     >
@@ -149,9 +152,12 @@ exports[`app/shared-components/SteppedNavigation Snapshot tests with react-test-
   <div
     className="columns small-12"
   >
-    <div
-      className="SteppedNavigation__exit flex-container align-middle"
-      onClick={undefined}
+    <a
+      aria-current="page"
+      className="SteppedNavigation__exit flex-container align-middle active"
+      href="/"
+      onClick={[Function]}
+      style={Object {}}
     >
       <span
         className="SteppedNavigation__exitText"
@@ -161,7 +167,7 @@ exports[`app/shared-components/SteppedNavigation Snapshot tests with react-test-
       <span
         className="SteppedNavigation__exitIcon"
       />
-    </div>
+    </a>
     <div
       className="SteppedNavigation flex-container"
     >
@@ -303,9 +309,12 @@ exports[`app/shared-components/SteppedNavigation Snapshot tests with react-test-
   <div
     className="columns small-12"
   >
-    <div
+    <a
+      aria-current={null}
       className="SteppedNavigation__exit flex-container align-middle"
-      onClick={undefined}
+      href="/more-examples"
+      onClick={[Function]}
+      style={undefined}
     >
       <span
         className="SteppedNavigation__exitText"
@@ -315,7 +324,7 @@ exports[`app/shared-components/SteppedNavigation Snapshot tests with react-test-
       <span
         className="SteppedNavigation__exitIcon"
       />
-    </div>
+    </a>
     <div
       className="SteppedNavigation flex-container"
     >

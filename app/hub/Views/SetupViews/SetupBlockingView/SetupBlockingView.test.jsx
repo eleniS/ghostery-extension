@@ -26,7 +26,6 @@ describe('app/hub/Views/SetupViews/SetupBlockingView component', () => {
 						name: 'test',
 						image: 'choice-test-image',
 						text: 'This is your TEST choice',
-						aboveText: 'Above text is Optional',
 						description: 'This is your TEST below text',
 					},
 					{
@@ -70,7 +69,6 @@ describe('app/hub/Views/SetupViews/SetupBlockingView component', () => {
 						name: 'test',
 						image: 'choice-test-image',
 						text: 'This is your TEST choice',
-						aboveText: 'Above text is Optional',
 						description: 'This is your TEST below text',
 					},
 					{

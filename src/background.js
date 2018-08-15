@@ -495,17 +495,6 @@ function handleRewards(name, message) {
  */
 function handleGhosteryHub(name, message, tab_id, callback) {
 	switch (name) {
-		case 'GET_SETTINGS_BACKUP': {
-			callback({
-				selected_app_ids: conf.selected_app_ids,
-				enable_anti_tracking: conf.enable_anti_tracking,
-				enable_ad_block: conf.enable_ad_block,
-				enable_smart_blocking: conf.enable_smart_block,
-				enable_ghostery_rewards: conf.enable_offers,
-				enable_human_web: conf.enable_human_web,
-			});
-			break;
-		}
 		case 'SET_BLOCKING_POLICY': {
 			const { blockingPolicy } = message;
 			switch (blockingPolicy) {
@@ -537,6 +526,10 @@ function handleGhosteryHub(name, message, tab_id, callback) {
 					break;
 				}
 				case 'BLOCKING_POLICY_CUSTOM': {
+					// Blocking app_ids will be handled by Global Blocking blocking.js
+					break;
+				}
+				case 'BLOCKING_POLICY_RESET': {
 					const { selected_app_ids } = message;
 					conf.selected_app_ids = {};
 					for (const app_id in selected_app_ids) {

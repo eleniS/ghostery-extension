@@ -35,11 +35,6 @@ exports[`app/hub/Views/SetupViews/SetupBlockingView component Snapshot tests wit
           className="columns"
         >
           <div>
-            <div
-              className="SetupBlocking__aboveText"
-            >
-              Above text is Optional
-            </div>
             <label
               className="clickable flex-container flex-dir-column SetupBlocking__choiceBox SetupBlocking--selected"
               htmlFor="input-block-test"
@@ -76,9 +71,6 @@ exports[`app/hub/Views/SetupViews/SetupBlockingView component Snapshot tests wit
           className="columns"
         >
           <div>
-            <div
-              className="SetupBlocking__aboveText"
-            />
             <label
               className="clickable flex-container flex-dir-column SetupBlocking__choiceBox"
               htmlFor="input-block-example"

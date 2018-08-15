@@ -1619,21 +1619,7 @@
 		"message": "Would you like to help improve Ghostery?"
 	},
 	"hub_setup_header_title_done": {
-		"message": "$BOLD_START$You're All Set!$BOLD_END$$CONTAINER_START$Custom setup complete! Ghostery will quietly live here in your browser bar.$CONTAINER_END$",
-		"placeholders": {
-			"bold_start": {
-				"content":  "<b>"
-			},
-			"bold_end": {
-				"content":  "</b>"
-			},
-			"container_start": {
-				"content":  "<div class='SetupDone__header'>"
-			},
-			"container_end": {
-				"content":  "</div>"
-			}
-		}
+		"message": "Custom setup complete!"
 	},
 	"hub_setup_exit_flow": {
 		"message": "Exit Custom Setup"
@@ -1720,14 +1706,8 @@
 	},
 
 	"hub_setup_humanweb_header": {
-		"message": "We use anonymous analytics and $LINK_HW_START$Human Web$LINK_HW_END$ data to improve Ghostery’s performance and provide Rewards. No personal data is ever collected.$NEW_LINE$$LINK_LM_START$Learn More$LINK_LM_END$",
+		"message": "We use anonymous analytics and Human Web data to improve Ghostery’s performance and provide Rewards. No personal data is ever collected.$NEW_LINE$$LINK_LM_START$Learn More$LINK_LM_END$",
 		"placeholders": {
-			"link_hw_start": {
-				"content": "<a href=\"https://cliqz.com\" target=\"_blank\">"
-			},
-			"link_hw_end": {
-				"content": "</a>"
-			},
 			"link_lm_start": {
 				"content": "<a href=\"https://cliqz.com\" target=\"_blank\">"
 			},
@@ -1742,11 +1722,8 @@
 	"hub_setup_humanweb_label": {
 		"message": "Support Ghostery by sharing this information"
 	},
-	"hub_setup_ready_title": {
-		"message": "Custom setup complete! Ghostery will quietly live here in your browser bar."
-	},
 	"hub_setup_ready_heading": {
-		"message": "Check these out!"
+		"message": "Optimize Your Ghostery Experience"
 	},
 	"hub_setup_feature_tutorial_title": {
 		"message": "Take a tutorial"

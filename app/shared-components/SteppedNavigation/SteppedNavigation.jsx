@@ -30,7 +30,6 @@ const SteppedNavigation = (props) => {
 		textPrev,
 		textNext,
 		textDone,
-		clickExit,
 	} = props;
 
 	const circles = [];
@@ -45,12 +44,12 @@ const SteppedNavigation = (props) => {
 		<div className="row align-center">
 			<div className="columns small-12">
 				{hrefDone && (
-					<div onClick={clickExit} className="SteppedNavigation__exit flex-container align-middle">
+					<NavLink to={hrefDone} className="SteppedNavigation__exit flex-container align-middle">
 						{textDone && (
 							<span className="SteppedNavigation__exitText">{textDone}</span>
 						)}
 						<span className="SteppedNavigation__exitIcon" />
-					</div>
+					</NavLink>
 				)}
 				<div className="SteppedNavigation flex-container">
 					<div className="flex-child-grow flex-container flex-dir-row-reverse">

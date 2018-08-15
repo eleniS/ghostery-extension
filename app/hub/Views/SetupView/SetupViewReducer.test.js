@@ -26,14 +26,6 @@ const initialState = Immutable({
 			textNext: false,
 			textDone: false,
 		},
-		settings_backup: {
-			selected_app_ids: {},
-			enable_anti_tracking: true,
-			enable_ad_block: true,
-			enable_smart_blocking: true,
-			enable_ghostery_rewards: true,
-			enable_human_web: true,
-		},
 		blockingPolicy: 'recommended',
 		enable_anti_tracking: true,
 		enable_ad_block: true,
@@ -46,26 +38,6 @@ const initialState = Immutable({
 describe('app/hub/Views/SetupView reducer', () => {
 	test('initial state is correct', () => {
 		expect(SetupViewReducer(undefined, {})).toEqual({});
-	});
-
-	test('reducer correctly handles GET_SETTINGS_BACKUP', () => {
-		const data = {
-			selected_app_ids: { test: 'example' },
-			enable_anti_tracking: false,
-			enable_ad_block: false,
-			enable_smart_blocking: false,
-			enable_ghostery_rewards: false,
-			enable_human_web: false,
-		};
-		const action = { data, type: 'GET_SETTINGS_BACKUP' };
-
-		const updatedSetupState = Immutable.merge(initialState.setup, {
-			settings_backup: data,
-		});
-
-		expect(SetupViewReducer(initialState, action)).toEqual({
-			setup: updatedSetupState,
-		});
 	});
 
 	test('reducer correctly handles INIT_SETUP_PROPS', () => {

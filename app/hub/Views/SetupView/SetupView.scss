@@ -1,5 +1,5 @@
 /**
- * Setup Modal Sass
+ * Setup View Sass
  *
  * Ghostery Browser Extension
  * https://www.ghostery.com/
@@ -18,19 +18,7 @@
 	background-color: #ffffff;
 }
 
-// Setup Navigation
-.SetupModal__background,
-.SetupModal__container {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-}
-.SetupModal__background {
-	background-color: rgba(#000000, 0.13);
-	z-index: 9;
-}
+// Setup Modal
 .SetupModal__content {
 	position: relative;
 	width: 410px;
@@ -73,10 +61,7 @@
 }
 .SetupModal__buttonContainer {
 	background-color: #e7ecee;
-	padding: 25px 25px 50px;
-}
-.SetupModal__buttonContainer.SetupModal--short {
-	padding-bottom: 0px;
+	padding: 25px 25px 0;
 }
 .SetupModal__buttonContainer {
 	font-size: 12px;

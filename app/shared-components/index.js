@@ -15,11 +15,13 @@
  * @namespace SharedComponents
  */
 
+import Modal from './Modal';
 import SteppedNavigation from './SteppedNavigation';
 import ToggleCheckbox from './ToggleCheckbox';
 import ToggleSwitch from './ToggleSwitch';
 
 export {
+	Modal,
 	SteppedNavigation,
 	ToggleCheckbox,
 	ToggleSwitch

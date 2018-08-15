@@ -16,32 +16,9 @@ const initialState = {};
 function SetupViewReducer(state = initialState, action) {
 	switch (action.type) {
 		// Setup View
-		case 'GET_SETTINGS_BACKUP': {
-			const {
-				selected_app_ids,
-				enable_anti_tracking,
-				enable_ad_block,
-				enable_smart_blocking,
-				enable_ghostery_rewards,
-				enable_human_web,
-			} = action.data;
-			return Object.assign({}, state, {
-				setup: Object.assign({}, state.setup, {
-					settings_backup: {
-						selected_app_ids,
-						enable_anti_tracking,
-						enable_ad_block,
-						enable_smart_blocking,
-						enable_ghostery_rewards,
-						enable_human_web,
-					},
-				}),
-			});
-		}
 		case 'INIT_SETUP_PROPS': {
 			const {
 				navigation,
-				settings_backup,
 				blockingPolicy,
 				enable_anti_tracking,
 				enable_ad_block,
@@ -69,7 +46,6 @@ function SetupViewReducer(state = initialState, action) {
 						textNext,
 						textDone,
 					},
-					settings_backup,
 					blockingPolicy,
 					enable_anti_tracking,
 					enable_ad_block,

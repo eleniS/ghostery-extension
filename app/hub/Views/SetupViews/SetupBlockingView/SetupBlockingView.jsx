@@ -36,7 +36,6 @@ const SetupBlockingView = props => (
 						return (
 							<div key={`block-value-${choice.name}`} className="columns">
 								<div>
-									<div className="SetupBlocking__aboveText">{choice.aboveText}</div>
 									<label htmlFor={`input-block-${choice.name}`} className={choiceBoxClassNames}>
 										<div className="SetupBlocking__imageContainer flex-container align-center-middle">
 											<img src={choiceSelected ? bigCheckSrc : choice.image} />
@@ -73,7 +72,6 @@ SetupBlockingView.propTypes = {
 		name: PropTypes.string.isRequired,
 		image: PropTypes.string.isRequired,
 		text: PropTypes.string.isRequired,
-		aboveText: PropTypes.string,
 		description: PropTypes.string.isRequired,
 	})).isRequired,
 };
