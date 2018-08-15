@@ -13,9 +13,11 @@
 
 import { combineReducers } from 'redux';
 import { reducer as setup } from '../Views/SetupView';
+import { reducer as tutorial } from '../Views/TutorialView';
 
 const Reducers = combineReducers({
 	setup,
+	tutorial,
 });
 
 export default Reducers;

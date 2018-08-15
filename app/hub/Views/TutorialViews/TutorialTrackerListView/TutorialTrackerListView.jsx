@@ -20,7 +20,7 @@ import React, { Component } from 'react';
  * @extends Component
  * @memberof HubComponents
  */
-class TutorailTrackerListView extends Component {
+class TutorialTrackerListView extends Component {
 	constructor(props) {
 		super(props);
 
@@ -47,4 +47,4 @@ class TutorailTrackerListView extends Component {
 	}
 }
 
-export default TutorailTrackerListView;
+export default TutorialTrackerListView;
