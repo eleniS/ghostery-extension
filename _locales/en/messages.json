@@ -1593,7 +1593,6 @@
 	"setup_upgrade_button_go": {
 		"message": "Set Me Up"
 	},
-
 	"hub_setup_page_title": {
 		"message": "Ghostery Hub - Setup"
 	},
@@ -1634,10 +1633,7 @@
 		"message": "Done"
 	},
 	"hub_setup_enter_modal_text": {
-		"message": "Customizing setup will override your previous Ghostery blocking settings. Do you want to continue?"
-	},
-	"hub_setup_exit_modal_text": {
-		"message": "You have not completed Custom Setup. Selections will not be saved. Do you want to exit?"
+		"message": "Entering custom setup will override your previous Ghostery settings. Do you want to continue?"
 	},
 	"hub_setup_modal_button_no": {
 		"message": "No"
@@ -1647,10 +1643,6 @@
 	},
 	"hub_setup_modal_button_ask_again": {
 		"message": "Do not ask me again"
-	},
-
-	"hub_setup_blocking_above_recommended": {
-		"message": "Recommended"
 	},
 	"hub_setup_blocking_text_recommended": {
 		"message": "Block Default"
@@ -1676,7 +1668,6 @@
 	"hub_setup_blocking_description_custom": {
 		"message": "Choose which trackers to block"
 	},
-
 	"hub_setup_antisuite_name_antitracking": {
 		"message": "Enhanced Anti-Tracking"
 	},
@@ -1704,18 +1695,17 @@
 	"hub_setup_antisuite_feature_enabled": {
 		"message": "Enabled"
 	},
-
 	"hub_setup_humanweb_header": {
 		"message": "We use anonymous analytics and Human Web data to improve Ghostery’s performance and provide Rewards. No personal data is ever collected.$NEW_LINE$$LINK_LM_START$Learn More$LINK_LM_END$",
 		"placeholders": {
+			"new_line": {
+				"content": "<br />"
+			},
 			"link_lm_start": {
 				"content": "<a href=\"https://www.ghostery.com/faqs/human-web-data-collected/\" target=\"_blank\">"
 			},
 			"link_lm_end": {
 				"content": "</a>"
-			},
-			"new_line": {
-				"content": "<br />"
 			}
 		}
 	},
@@ -1752,7 +1742,6 @@
 	"hub_setup_feature_products_button": {
 		"message": "Yes, please!"
 	},
-
 	"enable_when_paused": {
 		"message": "To use this function, Resume Ghostery."
 	},

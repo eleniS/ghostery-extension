@@ -1574,9 +1574,9 @@ function initializeGhosteryModules() {
 			metrics.ping('install_complete');
 		}, 300000);
 
-		// open the setup page on install
+		// open the Ghostery Hub on install with justInstalled query parameter set to true
 		chrome.tabs.create({
-			url: chrome.runtime.getURL('./app/templates/setup.html'),
+			url: chrome.runtime.getURL('./app/templates/hub.html?justInstalled=true'),
 			active: true
 		});
 	} else {
