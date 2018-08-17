@@ -1674,7 +1674,7 @@
 		"message": "Choose from List"
 	},
 	"hub_setup_blocking_description_custom": {
-		"message": "Choose trackers to block"
+		"message": "Choose which trackers to block"
 	},
 
 	"hub_setup_antisuite_name_antitracking": {
@@ -1709,7 +1709,7 @@
 		"message": "We use anonymous analytics and Human Web data to improve Ghostery’s performance and provide Rewards. No personal data is ever collected.$NEW_LINE$$LINK_LM_START$Learn More$LINK_LM_END$",
 		"placeholders": {
 			"link_lm_start": {
-				"content": "<a href=\"https://cliqz.com\" target=\"_blank\">"
+				"content": "<a href=\"https://www.ghostery.com/faqs/human-web-data-collected/\" target=\"_blank\">"
 			},
 			"link_lm_end": {
 				"content": "</a>"
@@ -1726,31 +1726,31 @@
 		"message": "Optimize Your Ghostery Experience"
 	},
 	"hub_setup_feature_tutorial_title": {
-		"message": "Take a tutorial"
+		"message": "Take a Tutorial"
 	},
 	"hub_setup_feature_tutorial_description": {
-		"message": "A walk-through of Ghostery's features and highlights."
+		"message": "Walk through Ghostery's main features."
 	},
 	"hub_setup_feature_tutorial_button": {
-		"message": "Visit Tutorial"
+		"message": "Start"
 	},
 	"hub_setup_feature_supporter_title": {
-		"message": "Become a Ghostery Supporter"
+		"message": "Become a Supporter"
 	},
 	"hub_setup_feature_supporter_description": {
-		"message": "Support Ghostery and unlock additional features."
+		"message": "Support Ghostery and unlock special perks."
 	},
 	"hub_setup_feature_supporter_button": {
 		"message": "Support"
 	},
 	"hub_setup_feature_products_title": {
-		"message": "Try other Ghostery Products"
+		"message": "See more Ghostery Products"
 	},
 	"hub_setup_feature_products_description": {
-		"message": "Did you know Ghostery has other useful Privacy products? Try them out!"
+		"message": "Protect yourself fully with our full privacy suite!"
 	},
 	"hub_setup_feature_products_button": {
-		"message": "Yes, Please!"
+		"message": "Yes, please!"
 	},
 
 	"enable_when_paused": {

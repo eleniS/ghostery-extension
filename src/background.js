@@ -495,6 +495,17 @@ function handleRewards(name, message) {
  */
 function handleGhosteryHub(name, message, tab_id, callback) {
 	switch (name) {
+		case 'GET_SETUP_SHOW_WARNING_OVERRIDE': {
+			const { setup_show_warning_override } = conf;
+			callback({ setup_show_warning_override });
+			break;
+		}
+		case 'SET_SETUP_SHOW_WARNING_OVERRIDE': {
+			const { setup_show_warning_override } = message;
+			conf.setup_show_warning_override = setup_show_warning_override;
+			callback({ setup_show_warning_override });
+			break;
+		}
 		case 'SET_BLOCKING_POLICY': {
 			const { blockingPolicy } = message;
 			switch (blockingPolicy) {

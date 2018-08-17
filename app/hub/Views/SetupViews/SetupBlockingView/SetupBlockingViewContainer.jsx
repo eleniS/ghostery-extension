@@ -35,7 +35,7 @@ class SetupBlockingViewContainer extends Component {
 		const title = t('hub_setup_page_title_blocking');
 		window.document.title = title;
 
-		const { index, setup } = this.props;
+		const { index, setup, sendMountActions } = this.props;
 		this.props.actions.setSetupNavigation({
 			activeIndex: index,
 			hrefPrev: false,
@@ -46,8 +46,10 @@ class SetupBlockingViewContainer extends Component {
 			textDone: t('hub_setup_exit_flow'),
 		});
 
-		const { blockingPolicy } = setup;
-		this.props.actions.setBlockingPolicy({ blockingPolicy });
+		if (sendMountActions) {
+			const { blockingPolicy } = setup;
+			this.props.actions.setBlockingPolicy({ blockingPolicy });
+		}
 	}
 
 	/**

@@ -29,9 +29,16 @@ import SetupViewContainer from './SetupViewContainer';
 
 // Fake Actions
 const actions = {
+	getSetupShowWarningOverride: () => {
+		return new Promise((resolve) => {
+			resolve({
+				setup_show_warning_override: true,
+			});
+		});
+	},
+	setSetupShowWarningOverride: () => {},
 	initSetupProps: () => {},
 	setSetupNavigation: () => {},
-	getSettingsBackup: () => new Promise((resolve) => resolve),
 	setBlockingPolicy: () => {},
 	setAntiTracking: () => {},
 	setAdBlock: () => {},

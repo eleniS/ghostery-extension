@@ -16,9 +16,17 @@ const initialState = {};
 function SetupViewReducer(state = initialState, action) {
 	switch (action.type) {
 		// Setup View
+		case 'GET_SETUP_SHOW_WARNING_OVERRIDE': // Same as SET_SETUP_SHOW_WARNING_OVERRIDE
+		case 'SET_SETUP_SHOW_WARNING_OVERRIDE': {
+			const { setup_show_warning_override } = action.data;
+			return Object.assign({}, state, {
+				setup: Object.assign({}, state.setup, { setup_show_warning_override }),
+			});
+		}
 		case 'INIT_SETUP_PROPS': {
 			const {
 				navigation,
+				setup_show_warning_override,
 				blockingPolicy,
 				enable_anti_tracking,
 				enable_ad_block,
@@ -46,6 +54,7 @@ function SetupViewReducer(state = initialState, action) {
 						textNext,
 						textDone,
 					},
+					setup_show_warning_override,
 					blockingPolicy,
 					enable_anti_tracking,
 					enable_ad_block,

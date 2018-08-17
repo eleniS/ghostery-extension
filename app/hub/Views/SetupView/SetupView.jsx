@@ -34,7 +34,7 @@ const SetupView = props => (
 					render={() => (
 						<div>
 							<SetupHeader {...step.headerProps} />
-							<step.bodyComponent index={step.index} />
+							<step.bodyComponent index={step.index} sendMountActions={props.sendMountActions} />
 						</div>
 					)}
 				/>

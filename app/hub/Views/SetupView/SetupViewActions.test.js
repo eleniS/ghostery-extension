@@ -11,9 +11,56 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import * as utils from '../../utils';
 import * as SetupViewActions from './SetupViewActions';
 
+const middlewares = [thunk];
+const mockStore = configureStore(middlewares);
+
+const testData = { test: true };
+utils.sendMessageInPromise = jest.fn((name, message) => new Promise((resolve, reject) => {
+	switch (name) {
+		case 'GET_SETUP_SHOW_WARNING_OVERRIDE': {
+			resolve(testData);
+			break;
+		}
+		case 'SET_SETUP_SHOW_WARNING_OVERRIDE': {
+			resolve(message);
+			break;
+		}
+		default: resolve(message);
+	}
+}));
+
 describe('app/hub/Views/SetupView/ actions', () => {
+	test('getSetupShowWarningOverride action should return correctly', () => {
+		const initialState = {};
+		const store = mockStore(initialState);
+
+		const data = testData;
+		const expectedPayload = { data, type: 'GET_SETUP_SHOW_WARNING_OVERRIDE' };
+
+		return store.dispatch(SetupViewActions.getSetupShowWarningOverride()).then(() => {
+			const actions = store.getActions();
+			expect(actions).toEqual([expectedPayload]);
+		});
+	});
+
+	test('setSetupShowWarningOverride action should return correctly', () => {
+		const initialState = {};
+		const store = mockStore(initialState);
+
+		const data = testData;
+		const expectedPayload = { data, type: 'SET_SETUP_SHOW_WARNING_OVERRIDE' };
+
+		return store.dispatch(SetupViewActions.setSetupShowWarningOverride(data)).then(() => {
+			const actions = store.getActions();
+			expect(actions).toEqual([expectedPayload]);
+		});
+	});
+
 	test('initSetupProps action should return correctly', () => {
 		const testData = {
 			test: 'test-data',

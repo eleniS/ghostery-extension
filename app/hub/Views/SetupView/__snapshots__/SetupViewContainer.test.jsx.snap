@@ -6,75 +6,7 @@ exports[`app/hub/Views/SetupView container Snapshot tests with react-test-render
 >
   <div
     className="Modal"
-  >
-    <div>
-      <div
-        className="Modal__background"
-        onClick={undefined}
-      />
-      <div
-        className="Modal__container flex-container align-center-middle"
-      >
-        <div
-          className="SetupModal__content flex-container flex-dir-column align-middle"
-        >
-          <div
-            className="SetupModal__image"
-          />
-          <div
-            className="SetupModal__text flex-child-grow"
-          >
-            hub_setup_enter_modal_text
-          </div>
-          <div
-            className="SetupModal__buttonContainer full-width"
-          >
-            <div
-              className="full-width flex-container align-justify"
-            >
-              <a
-                aria-current="page"
-                className="button success hollow active"
-                href="/"
-                onClick={[Function]}
-                style={Object {}}
-              >
-                hub_setup_modal_button_no
-              </a>
-              <div
-                className="button success hollow"
-                onClick={[Function]}
-              >
-                hub_setup_modal_button_yes
-              </div>
-            </div>
-            <div
-              className="flex-container align-center-middle"
-            >
-              <div
-                className="ToggleCheckbox"
-                onClick={[Function]}
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                  />
-                </svg>
-              </div>
-              <div
-                className="SetupModal__checkboxText"
-                onClick={[Function]}
-              >
-                hub_setup_modal_button_ask_again
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  />
   <div
     className="full-height flex-container flex-dir-column"
   >
@@ -126,75 +58,7 @@ exports[`app/hub/Views/SetupView container Snapshot tests with react-test-render
 >
   <div
     className="Modal"
-  >
-    <div>
-      <div
-        className="Modal__background"
-        onClick={undefined}
-      />
-      <div
-        className="Modal__container flex-container align-center-middle"
-      >
-        <div
-          className="SetupModal__content flex-container flex-dir-column align-middle"
-        >
-          <div
-            className="SetupModal__image"
-          />
-          <div
-            className="SetupModal__text flex-child-grow"
-          >
-            hub_setup_enter_modal_text
-          </div>
-          <div
-            className="SetupModal__buttonContainer full-width"
-          >
-            <div
-              className="full-width flex-container align-justify"
-            >
-              <a
-                aria-current="page"
-                className="button success hollow active"
-                href="/"
-                onClick={[Function]}
-                style={Object {}}
-              >
-                hub_setup_modal_button_no
-              </a>
-              <div
-                className="button success hollow"
-                onClick={[Function]}
-              >
-                hub_setup_modal_button_yes
-              </div>
-            </div>
-            <div
-              className="flex-container align-center-middle"
-            >
-              <div
-                className="ToggleCheckbox"
-                onClick={[Function]}
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                  />
-                </svg>
-              </div>
-              <div
-                className="SetupModal__checkboxText"
-                onClick={[Function]}
-              >
-                hub_setup_modal_button_ask_again
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  />
   <div
     className="full-height flex-container flex-dir-column"
   >
@@ -246,75 +110,7 @@ exports[`app/hub/Views/SetupView container Snapshot tests with react-test-render
 >
   <div
     className="Modal"
-  >
-    <div>
-      <div
-        className="Modal__background"
-        onClick={undefined}
-      />
-      <div
-        className="Modal__container flex-container align-center-middle"
-      >
-        <div
-          className="SetupModal__content flex-container flex-dir-column align-middle"
-        >
-          <div
-            className="SetupModal__image"
-          />
-          <div
-            className="SetupModal__text flex-child-grow"
-          >
-            hub_setup_enter_modal_text
-          </div>
-          <div
-            className="SetupModal__buttonContainer full-width"
-          >
-            <div
-              className="full-width flex-container align-justify"
-            >
-              <a
-                aria-current="page"
-                className="button success hollow active"
-                href="/"
-                onClick={[Function]}
-                style={Object {}}
-              >
-                hub_setup_modal_button_no
-              </a>
-              <div
-                className="button success hollow"
-                onClick={[Function]}
-              >
-                hub_setup_modal_button_yes
-              </div>
-            </div>
-            <div
-              className="flex-container align-center-middle"
-            >
-              <div
-                className="ToggleCheckbox"
-                onClick={[Function]}
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                  />
-                </svg>
-              </div>
-              <div
-                className="SetupModal__checkboxText"
-                onClick={[Function]}
-              >
-                hub_setup_modal_button_ask_again
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  />
   <div
     className="full-height flex-container flex-dir-column"
   >
@@ -366,75 +162,7 @@ exports[`app/hub/Views/SetupView container Snapshot tests with react-test-render
 >
   <div
     className="Modal"
-  >
-    <div>
-      <div
-        className="Modal__background"
-        onClick={undefined}
-      />
-      <div
-        className="Modal__container flex-container align-center-middle"
-      >
-        <div
-          className="SetupModal__content flex-container flex-dir-column align-middle"
-        >
-          <div
-            className="SetupModal__image"
-          />
-          <div
-            className="SetupModal__text flex-child-grow"
-          >
-            hub_setup_enter_modal_text
-          </div>
-          <div
-            className="SetupModal__buttonContainer full-width"
-          >
-            <div
-              className="full-width flex-container align-justify"
-            >
-              <a
-                aria-current="page"
-                className="button success hollow active"
-                href="/"
-                onClick={[Function]}
-                style={Object {}}
-              >
-                hub_setup_modal_button_no
-              </a>
-              <div
-                className="button success hollow"
-                onClick={[Function]}
-              >
-                hub_setup_modal_button_yes
-              </div>
-            </div>
-            <div
-              className="flex-container align-center-middle"
-            >
-              <div
-                className="ToggleCheckbox"
-                onClick={[Function]}
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                  />
-                </svg>
-              </div>
-              <div
-                className="SetupModal__checkboxText"
-                onClick={[Function]}
-              >
-                hub_setup_modal_button_ask_again
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  />
   <div
     className="full-height flex-container flex-dir-column"
   >

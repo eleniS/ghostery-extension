@@ -13,6 +13,7 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import QueryString from 'query-string';
 import PropTypes from 'prop-types';
 import SetupView from './SetupView';
 import { Modal, ToggleCheckbox } from '../../../shared-components';
@@ -32,11 +33,12 @@ class SetupViewContainer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			showModal: true,
-			checkAskAgain: false,
+			sendMountActions: false,
+			showModal: false,
 		};
 
 		// Event Bindings
+		this._answerModalYes = this._answerModalYes.bind(this);
 		this._toggleModal = this._toggleModal.bind(this);
 		this._toggleCheckbox = this._toggleCheckbox.bind(this);
 	}
@@ -50,15 +52,37 @@ class SetupViewContainer extends React.Component {
 		window.document.title = title;
 
 		this.props.actions.initSetupProps(this.props.setup);
-		// this.props.actions.getSettingsBackup().then(() => {
-		// 	// Set the default props for the Setup Flow
-		// 	this.props.actions.setBlockingPolicy({ blockingPolicy: 'BLOCKING_POLICY_RECOMMENDED' });
-		// 	this.props.actions.setAntiTracking({ enable_anti_tracking: true });
-		// 	this.props.actions.setAdBlock({ enable_ad_block: true });
-		// 	this.props.actions.setSmartBlocking({ enable_smart_blocking: true });
-		// 	this.props.actions.setGhosteryRewards({ enable_ghostery_rewards: true });
-		// 	this.props.actions.setHumanWeb({ enable_human_web: true });
-		// });
+		this.props.actions.getSetupShowWarningOverride().then((data) => {
+			const { setup_show_warning_override } = data;
+			const { justInstalled } = QueryString.parse(window.location.search);
+
+			if (!justInstalled && setup_show_warning_override) {
+				this._toggleModal();
+			} else {
+				this._setDefaultSettings();
+			}
+		});
+	}
+
+	/**
+	 * Function to persist the default settings to background
+	 */
+	_setDefaultSettings() {
+		this.setState({ sendMountActions: true });
+		this.props.actions.setBlockingPolicy({ blockingPolicy: 'BLOCKING_POLICY_RECOMMENDED' });
+		this.props.actions.setAntiTracking({ enable_anti_tracking: true });
+		this.props.actions.setAdBlock({ enable_ad_block: true });
+		this.props.actions.setSmartBlocking({ enable_smart_blocking: true });
+		this.props.actions.setGhosteryRewards({ enable_ghostery_rewards: true });
+		this.props.actions.setHumanWeb({ enable_human_web: true });
+	}
+
+	/**
+	* Function to handle clicking yes on the Modal
+	*/
+	_answerModalYes() {
+		this._setDefaultSettings();
+		this._toggleModal();
 	}
 
 	/**
@@ -75,9 +99,9 @@ class SetupViewContainer extends React.Component {
 	* Function to toggle the Ask Again Checkbox
 	*/
 	_toggleCheckbox() {
-		const { checkAskAgain } = this.state;
-		this.setState({
-			checkAskAgain: !checkAskAgain,
+		const { setup_show_warning_override } = this.props.setup;
+		this.props.actions.setSetupShowWarningOverride({
+			setup_show_warning_override: !setup_show_warning_override,
 		});
 	}
 
@@ -86,7 +110,7 @@ class SetupViewContainer extends React.Component {
 	 * @return {JSX} JSX of the Setup Modal's Children
 	 */
 	_renderModalChildren() {
-		const { checkAskAgain } = this.state;
+		const { setup_show_warning_override } = this.props.setup;
 
 		return (
 			<div className="SetupModal__content flex-container flex-dir-column align-middle">
@@ -99,12 +123,12 @@ class SetupViewContainer extends React.Component {
 						<NavLink to="/" className="button success hollow">
 							{t('hub_setup_modal_button_no')}
 						</NavLink>
-						<div className="button success hollow" onClick={this._toggleModal}>
+						<div className="button success hollow" onClick={this._answerModalYes}>
 							{t('hub_setup_modal_button_yes')}
 						</div>
 					</div>
 					<div className="flex-container align-center-middle">
-						<ToggleCheckbox checked={checkAskAgain} onChange={this._toggleCheckbox} />
+						<ToggleCheckbox checked={!setup_show_warning_override} onChange={this._toggleCheckbox} />
 						<div className="SetupModal__checkboxText" onClick={this._toggleCheckbox}>
 							{t('hub_setup_modal_button_ask_again')}
 						</div>
@@ -119,7 +143,7 @@ class SetupViewContainer extends React.Component {
 	 * @return {JSX} JSX for rendering the Setup View of the Hub app
 	 */
 	render() {
-		const { showModal } = this.state;
+		const { showModal, sendMountActions } = this.state;
 		const steps = [
 			{
 				index: 1,
@@ -164,7 +188,7 @@ class SetupViewContainer extends React.Component {
 				<Modal show={showModal} >
 					{this._renderModalChildren()}
 				</Modal>
-				<SetupView steps={steps} />
+				<SetupView steps={steps} sendMountActions={sendMountActions} />
 			</div>
 		);
 	}
@@ -201,6 +225,7 @@ SetupViewContainer.propTypes = {
 				PropTypes.string,
 			]),
 		}),
+		setup_show_warning_override: PropTypes.bool,
 		blockingPolicy: PropTypes.string,
 		enable_anti_tracking: PropTypes.bool,
 		enable_ad_block: PropTypes.bool,
@@ -209,6 +234,8 @@ SetupViewContainer.propTypes = {
 		enable_human_web: PropTypes.bool,
 	}),
 	actions: PropTypes.shape({
+		getSetupShowWarningOverride: PropTypes.func.isRequired,
+		setSetupShowWarningOverride: PropTypes.func.isRequired,
 		initSetupProps: PropTypes.func.isRequired,
 		setSetupNavigation: PropTypes.func.isRequired,
 		setBlockingPolicy: PropTypes.func.isRequired,
@@ -232,6 +259,7 @@ SetupViewContainer.defaultProps = {
 			textNext: false,
 			textDone: false,
 		},
+		setup_show_warning_override: true,
 		blockingPolicy: 'BLOCKING_POLICY_RECOMMENDED',
 		enable_anti_tracking: true,
 		enable_ad_block: true,

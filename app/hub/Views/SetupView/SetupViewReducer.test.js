@@ -26,6 +26,7 @@ const initialState = Immutable({
 			textNext: false,
 			textDone: false,
 		},
+		setup_show_warning_override: true,
 		blockingPolicy: 'recommended',
 		enable_anti_tracking: true,
 		enable_ad_block: true,
@@ -38,6 +39,28 @@ const initialState = Immutable({
 describe('app/hub/Views/SetupView reducer', () => {
 	test('initial state is correct', () => {
 		expect(SetupViewReducer(undefined, {})).toEqual({});
+	});
+
+	test('reducer correctly handles GET_SETUP_SHOW_WARNING_OVERRIDE', () => {
+		const data = { setup_show_warning_override: false };
+		const action = { data, type: 'GET_SETUP_SHOW_WARNING_OVERRIDE' };
+
+		const updatedSetupState = Immutable.merge(initialState.setup, data);
+
+		expect(SetupViewReducer(initialState, action)).toEqual({
+			setup: updatedSetupState
+		});
+	});
+
+	test('reducer correctly handles SET_SETUP_SHOW_WARNING_OVERRIDE', () => {
+		const data = { setup_show_warning_override: false };
+		const action = { data, type: 'SET_SETUP_SHOW_WARNING_OVERRIDE' };
+
+		const updatedSetupState = Immutable.merge(initialState.setup, data);
+
+		expect(SetupViewReducer(initialState, action)).toEqual({
+			setup: updatedSetupState
+		});
 	});
 
 	test('reducer correctly handles INIT_SETUP_PROPS', () => {

@@ -35,7 +35,7 @@ class SetupHumanWebViewContainer extends Component {
 		const title = t('hub_setup_page_title_humanweb');
 		window.document.title = title;
 
-		const { index, setup } = this.props;
+		const { index, setup, sendMountActions } = this.props;
 		this.props.actions.setSetupNavigation({
 			activeIndex: index,
 			hrefPrev: `/setup/${index - 1}`,
@@ -46,8 +46,10 @@ class SetupHumanWebViewContainer extends Component {
 			textDone: t('hub_setup_exit_flow'),
 		});
 
-		const { enable_human_web } = setup;
-		this.props.actions.setHumanWeb({ enable_human_web });
+		if (sendMountActions) {
+			const { enable_human_web } = setup;
+			this.props.actions.setHumanWeb({ enable_human_web });
+		}
 	}
 
 	/**

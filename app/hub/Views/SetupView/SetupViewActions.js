@@ -11,6 +11,37 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0
  */
 
+import { log, sendMessageInPromise } from '../../utils';
+
+export function getSetupShowWarningOverride() {
+	return function (dispatch) {
+		return sendMessageInPromise('GET_SETUP_SHOW_WARNING_OVERRIDE').then((data) => {
+			dispatch({
+				type: 'GET_SETUP_SHOW_WARNING_OVERRIDE',
+				data,
+			});
+
+			// Send data back to SetupViewContainer
+			return data;
+		}).catch((err) => {
+			log('setupView Action getSetupShowWarningOverride Error', err);
+		});
+	};
+}
+
+export function setSetupShowWarningOverride(actionData) {
+	return function (dispatch) {
+		return sendMessageInPromise('SET_SETUP_SHOW_WARNING_OVERRIDE', actionData).then((data) => {
+			dispatch({
+				type: 'SET_SETUP_SHOW_WARNING_OVERRIDE',
+				data,
+			});
+		}).catch((err) => {
+			log('setupView Action setSetupShowWarningOverride Error', err);
+		});
+	};
+}
+
 export function initSetupProps(data) {
 	return {
 		type: 'INIT_SETUP_PROPS',
